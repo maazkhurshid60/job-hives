@@ -1,17 +1,9 @@
-import React from "react";
+import type { ComponentType } from "react";
 import type { JobCardProps } from "@/components/cards/JobCard";
-import { TalentSearchIcon } from "@/components/icons/CommonIcons";
-import {
-  ChatManagementIcon,
-  MarketingIcon,
-  VideoEditingIcon,
-  DevelopmentIcon,
-  CopywritingIcon,
-  GrowthIcon,
-} from "@/components/icons/CategoryIcons";
+import { MessagesSquare, Megaphone, Clapperboard, Code2, PenSquare, TrendingUp, UserSearch } from "lucide-react";
 
 export interface Category {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string }>;
   name: string;
   count: number;
   bgClass: string;
@@ -19,13 +11,13 @@ export interface Category {
 }
 
 export const CATEGORIES_DATA: Category[] = [
-  { icon: ChatManagementIcon, name: "Chat Management", count: 128, bgClass: "bg-primary-50", textClass: "text-primary-600" },
-  { icon: MarketingIcon, name: "Marketing", count: 64, bgClass: "bg-warning-50", textClass: "text-warning-600" },
-  { icon: VideoEditingIcon, name: "Video Editing", count: 47, bgClass: "bg-danger-50", textClass: "text-danger-600" },
-  { icon: DevelopmentIcon, name: "Development", count: 31, bgClass: "bg-success-50", textClass: "text-success-600" },
-  { icon: CopywritingIcon, name: "Copywriting", count: 22, bgClass: "bg-neutral-100", textClass: "text-neutral-600" },
-  { icon: GrowthIcon, name: "Sales & Growth", count: 18, bgClass: "bg-primary-50", textClass: "text-primary-600" },
-  { icon: TalentSearchIcon, name: "Recruitment", count: 9, bgClass: "bg-warning-50", textClass: "text-warning-600" },
+  { icon: MessagesSquare, name: "Chat Management", count: 128, bgClass: "bg-primary-50", textClass: "text-primary-600" },
+  { icon: Megaphone, name: "Marketing", count: 64, bgClass: "bg-warning-50", textClass: "text-warning-600" },
+  { icon: Clapperboard, name: "Video Editing", count: 47, bgClass: "bg-danger-50", textClass: "text-danger-600" },
+  { icon: Code2, name: "Development", count: 31, bgClass: "bg-success-50", textClass: "text-success-600" },
+  { icon: PenSquare, name: "Copywriting", count: 22, bgClass: "bg-neutral-100", textClass: "text-neutral-600" },
+  { icon: TrendingUp, name: "Sales & Growth", count: 18, bgClass: "bg-primary-50", textClass: "text-primary-600" },
+  { icon: UserSearch, name: "Recruitment", count: 9, bgClass: "bg-warning-50", textClass: "text-warning-600" },
 ];
 
 export type JobListing = Omit<JobCardProps, "onSaveToggle" | "onApply"> & { id: string; isPremium: boolean };

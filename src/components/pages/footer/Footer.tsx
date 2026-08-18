@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Container from "@/components/common-layout/Container";
 import ButtonSm from "@/components/button/ButtonSm";
+import { InstagramIcon, TikTokIcon, FacebookIcon, XIcon } from "@/components/icons/SocialIcons";
 
 const Footer: React.FC = () => {
   return (
@@ -48,14 +49,17 @@ const Footer: React.FC = () => {
         <div className="border-t border-neutral-800 pt-6 flex flex-wrap justify-between items-center gap-4 text-xs footer-bottom">
           <span>© 2026 JobHive. All rights reserved.</span>
           <div className="flex gap-3 social-icons">
-            <Link href="#" className="w-[34px] h-[34px] rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary-500 transition-colors text-white">
-              ▶
+            <Link href="#" aria-label="Instagram" className="w-[34px] h-[34px] rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary-500 transition-colors text-white">
+              <InstagramIcon className="w-4 h-4" />
             </Link>
-            <Link href="#" className="w-[34px] h-[34px] rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary-500 transition-colors text-white">
-              ◎
+            <Link href="#" aria-label="TikTok" className="w-[34px] h-[34px] rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary-500 transition-colors text-white">
+              <TikTokIcon className="w-4 h-4" />
             </Link>
-            <Link href="#" className="w-[34px] h-[34px] rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary-500 transition-colors text-white">
-              ♪
+            <Link href="#" aria-label="Facebook" className="w-[34px] h-[34px] rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary-500 transition-colors text-white">
+              <FacebookIcon className="w-4 h-4" />
+            </Link>
+            <Link href="#" aria-label="X (Twitter)" className="w-[34px] h-[34px] rounded-full bg-neutral-800 flex items-center justify-center hover:bg-primary-500 transition-colors text-white">
+              <XIcon className="w-4 h-4" />
             </Link>
           </div>
         </div>

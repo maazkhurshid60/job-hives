@@ -9,6 +9,7 @@ import CardDesc from "@/components/pages/typography/CardDesc";
 import clsx from "clsx";
 import { useReveal } from "@/hooks/useReveal";
 import { WORKER_STEPS, EMPLOYER_STEPS } from "@/constant/howItWorksData";
+import SegmentedTabs from "@/components/tabs/SegmentedTabs";
 
 const HowItWorks: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"worker" | "employer">("worker");
@@ -34,29 +35,15 @@ const HowItWorks: React.FC = () => {
         </div>
 
         {/* Tab Controls */}
-        <div ref={tabsReveal.ref} className={clsx("flex justify-center gap-2 mb-16 hiw-tabs", tabsReveal.className)}>
-          <button
-            onClick={() => setActiveTab("worker")}
-            className={clsx(
-              "px-[26px] py-2.5 rounded-full border-[1.5px] border-solid font-bold text-sm cursor-pointer transition-all duration-200",
-              activeTab === "worker"
-                ? "bg-primary-500 border-primary-500 text-neutral-0 shadow-sm"
-                : "border-neutral-200 bg-neutral-0 text-neutral-600 hover:border-neutral-300"
-            )}
-          >
-            For Workers
-          </button>
-          <button
-            onClick={() => setActiveTab("employer")}
-            className={clsx(
-              "px-[26px] py-2.5 rounded-full border-[1.5px] border-solid font-bold text-sm cursor-pointer transition-all duration-200",
-              activeTab === "employer"
-                ? "bg-primary-500 border-primary-500 text-neutral-0 shadow-sm"
-                : "border-neutral-200 bg-neutral-0 text-neutral-600 hover:border-neutral-300"
-            )}
-          >
-            For Employers
-          </button>
+        <div ref={tabsReveal.ref} className={clsx("flex justify-center mb-16 hiw-tabs", tabsReveal.className)}>
+          <SegmentedTabs
+            options={[
+              { value: "worker", label: "For Workers" },
+              { value: "employer", label: "For Employers" },
+            ]}
+            value={activeTab}
+            onChange={setActiveTab}
+          />
         </div>
 
         {/* Flow Panel */}

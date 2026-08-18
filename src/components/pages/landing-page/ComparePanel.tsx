@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import CardHeading from "@/components/pages/typography/CardHeading";
 import CardDesc from "@/components/pages/typography/CardDesc";
-import { CheckIcon, XCircleIcon } from "@/components/icons/CommonIcons";
+import { Check, XCircle } from "lucide-react";
 import type { ComparePanelData } from "@/constant/compareData";
 
 interface ComparePanelProps {
@@ -11,7 +11,7 @@ interface ComparePanelProps {
 
 const ComparePanel: React.FC<ComparePanelProps> = ({ data }) => {
   const isNew = data.variant === "new";
-  const Icon = isNew ? CheckIcon : XCircleIcon;
+  const Icon = isNew ? Check : XCircle;
 
   return (
     <div

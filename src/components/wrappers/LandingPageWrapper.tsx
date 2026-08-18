@@ -15,7 +15,7 @@ const LandingPageWrapper: React.FC<LandingPageWrapperProps> = ({ children }) => 
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar onHamburgerClick={() => setMobileMenuOpen((prev) => !prev)} />
+      <Navbar onHamburgerClick={() => setMobileMenuOpen((prev) => !prev)} isMenuOpen={mobileMenuOpen} />
       
       {/* Mobile Drawer */}
       {mobileMenuOpen && (

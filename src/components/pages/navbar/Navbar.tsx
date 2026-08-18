@@ -2,12 +2,14 @@ import React from "react";
 import Container from "@/components/common-layout/Container";
 import Link from "next/link";
 import ButtonSm from "@/components/button/ButtonSm";
+import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
   onHamburgerClick?: () => void;
+  isMenuOpen?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
+const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false }) => {
   return (
     <header className="sticky top-0 z-50 bg-neutral-0 border-b border-solid border-neutral-200 navbar">
       <Container className="flex items-center justify-between h-[72px]">
@@ -34,22 +36,21 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick }) => {
             url="#login"
             text="Log in"
             bgColor="bg-transparent hover:bg-neutral-100 text-neutral-700"
+            className="hidden min-[861px]:inline-flex"
           />
           <ButtonSm
             url="#signup"
             text="Sign Up"
             bgColor="bg-transparent hover:bg-primary-50 text-primary-600 border-[1.5px] border-primary-500"
             isBorder
-            className="hidden sm:inline-flex"
+            className="hidden min-[861px]:inline-flex"
           />
           <button
             onClick={onHamburgerClick}
-            className="flex flex-col gap-[5px] p-2 bg-none border-none cursor-pointer min-[861px]:hidden hamburger"
-            aria-label="Open menu"
+            className="flex items-center justify-center p-2 bg-none border-none cursor-pointer min-[861px]:hidden text-neutral-800 hamburger"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            <span className="w-[22px] h-[2px] bg-neutral-800 rounded-sm" />
-            <span className="w-[22px] h-[2px] bg-neutral-800 rounded-sm" />
-            <span className="w-[22px] h-[2px] bg-neutral-800 rounded-sm" />
+            {isMenuOpen ? <X className="w-[22px] h-[22px]" /> : <Menu className="w-[22px] h-[22px]" />}
           </button>
         </div>
       </Container>

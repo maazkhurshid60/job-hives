@@ -74,6 +74,15 @@ img, svg {
   max-width: 100%;
 }
 
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge (Chromium) */
+}
+
 /* ===== WRAPPER (shared side-gap utility for section content) =====
    Note: this project runs Tailwind v3 (see @tailwind directives above), which
    has no `@utility` at-rule — that's a v4 feature. Defined here as a plain
@@ -127,11 +136,6 @@ img, svg {
   0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, .6); }
   70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
   100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
-
-@keyframes catMarqueeScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 @keyframes twScrollUp {

@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import { CheckIcon } from "@/components/icons/CommonIcons";
+import { Check } from "lucide-react";
 import type { BillingPeriod, PricingPlan } from "@/constant/pricingData";
 
 interface PriceCardProps {
@@ -68,7 +68,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan, billing }) => {
       <ul className="p-0 mb-7 flex flex-col gap-3 flex-1 list-none text-left">
         {plan.features.map((feature, idx) => (
           <li key={idx} className={clsx("flex gap-2.5 items-start text-[13.5px] leading-normal", featured ? "text-neutral-0" : "text-neutral-700")}>
-            <CheckIcon className={clsx("w-4 h-4 flex-shrink-0 mt-0.5", featured ? "text-neutral-0" : "text-primary-600")} />
+            <Check className={clsx("w-4 h-4 flex-shrink-0 mt-0.5", featured ? "text-neutral-0" : "text-primary-600")} />
             {feature}
           </li>
         ))}

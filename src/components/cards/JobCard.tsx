@@ -2,7 +2,7 @@
 
 import React from "react";
 import CardHeading from "@/components/pages/typography/CardHeading";
-import { HeartIcon, LocationPinIcon, ListIcon } from "@/components/icons/JobCardIcons";
+import { Heart, MapPin, Tag, Star } from "lucide-react";
 import clsx from "clsx";
 
 export interface JobCardProps {
@@ -78,7 +78,7 @@ const JobCard: React.FC<JobCardProps> = ({
         )}
         aria-label="Save job"
       >
-        <HeartIcon filled={isSaved} className="w-4 h-4" />
+        <Heart className="w-4 h-4" fill={isSaved ? "currentColor" : "none"} />
       </button>
 
       {/* Meta Row */}
@@ -94,7 +94,8 @@ const JobCard: React.FC<JobCardProps> = ({
         </CardHeading>
         {isPremium && (
           <span className="inline-flex items-center gap-1 text-[11px] font-bold text-warning-600 bg-warning-50 px-[9px] py-[3px] rounded-full">
-            ★ Premium
+            <Star className="w-3 h-3" fill="currentColor" strokeWidth={0} />
+            Premium
           </span>
         )}
       </div>
@@ -109,11 +110,11 @@ const JobCard: React.FC<JobCardProps> = ({
       <div className="flex items-center justify-between gap-3.5 flex-wrap">
         <div className="flex flex-wrap gap-2">
           <span className="inline-flex items-center gap-[5px] text-[12px] font-semibold text-neutral-600 bg-neutral-50 border border-solid border-neutral-200 px-[11px] py-[5px] rounded-full">
-            <LocationPinIcon className="w-3 h-3 flex-shrink-0" />
+            <MapPin className="w-3 h-3 flex-shrink-0" />
             {location}
           </span>
           <span className="inline-flex items-center gap-[5px] text-[12px] font-semibold text-neutral-600 bg-neutral-50 border border-solid border-neutral-200 px-[11px] py-[5px] rounded-full">
-            <ListIcon className="w-3 h-3 flex-shrink-0" />
+            <Tag className="w-3 h-3 flex-shrink-0" />
             {category}
           </span>
         </div>

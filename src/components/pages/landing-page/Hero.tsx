@@ -3,8 +3,7 @@ import Image from "next/image";
 import Container from "@/components/common-layout/Container";
 import Link from "next/link";
 import ButtonSm from "@/components/button/ButtonSm";
-import { SearchGlassIcon, SparkleIcon, JobSearchIcon } from "@/components/icons/HeroIcons";
-import { TalentSearchIcon } from "@/components/icons/CommonIcons";
+import { Search, Sparkles, Briefcase, UserSearch, Check } from "lucide-react";
 
 const Hero: React.FC = () => {
   return (
@@ -40,8 +39,8 @@ const Hero: React.FC = () => {
           className="object-cover"
         />
       </div>
-      <div className="absolute w-[60px] h-[60px] rounded-full bg-primary-50 border-[3px] border-solid border-neutral-0 shadow-md hidden min-[901px]:flex items-center justify-center font-heading font-bold text-[15px] text-primary-700 z-10 [animation:floatY_7.4s_ease-in-out_infinite] [animation-delay:.6s] bottom-[8%] right-[10%] float-avatar fa-4">
-        ✓
+      <div className="absolute w-[60px] h-[60px] rounded-full bg-primary-50 border-[3px] border-solid border-neutral-0 shadow-md hidden min-[901px]:flex items-center justify-center text-primary-700 z-10 [animation:floatY_7.4s_ease-in-out_infinite] [animation-delay:.6s] bottom-[8%] right-[10%] float-avatar fa-4">
+        <Check className="w-6 h-6" strokeWidth={3} />
       </div>
 
       <Container className="relative flex flex-col items-center justify-center z-10 max-w-[820px] text-center mx-auto hero-inner">
@@ -54,7 +53,7 @@ const Hero: React.FC = () => {
 
         <h1 className="font-heading font-extrabold text-[clamp(32px,5.6vw,58px)] leading-[1.08] tracking-[-0.02em] text-neutral-900 relative inline-block">
           Hire remote talent, <span className="text-primary-500">the right way</span>
-          <SparkleIcon className="absolute top-[-16px] right-[-32px] w-[26px] text-primary-400 [animation:sparkle_3.2s_ease-in-out_infinite] sparkle" />
+          <Sparkles className="absolute top-[-18px] right-[-32px] w-[26px] h-[26px] text-primary-400 [animation:sparkle_3.2s_ease-in-out_infinite] sparkle" fill="currentColor" />
         </h1>
 
         <p className="text-[clamp(16px,2vw,18px)] text-neutral-600 max-w-[560px] mx-auto mt-5 mb-9 lead">
@@ -62,9 +61,9 @@ const Hero: React.FC = () => {
         </p>
 
         {/* Search Bar */}
-        <div className="bg-neutral-0 border border-solid border-neutral-200 rounded-md sm:rounded-md shadow-lg p-3.5 sm:p-2 sm:pl-5 max-w-[620px] mx-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2 hero-search">
+        <div className="bg-neutral-0 border border-solid border-neutral-200 rounded-md sm:rounded-md shadow-lg p-3.5 sm:p-2 sm:pl-5 max-w-[620px] w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-2 hero-search">
           <span className="text-neutral-400 flex-shrink-0 hidden sm:flex items-center icon">
-            <SearchGlassIcon />
+            <Search className="w-[18px] h-[18px]" />
           </span>
           <input
             type="text"
@@ -81,13 +80,13 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Dual CTA cards */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 dual-entry">
+        <div className="flex flex-col w-full sm:flex-row gap-4 justify-center mt-8 dual-entry">
           <Link
             href="#signup-worker"
             className="flex items-center gap-3.5 bg-neutral-0 border-[1.5px] border-solid border-neutral-200 rounded-lg p-[16px_22px] text-left hover:border-primary-400 hover:shadow-md hover:-translate-y-0.5 transition duration-200 min-w-[250px] entry-card"
           >
             <span className="w-11 h-11 rounded-md bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0 emoji-badge">
-              <JobSearchIcon className="w-6 h-6" />
+              <Briefcase className="w-6 h-6" />
             </span>
             <span>
               <b className="block text-[15px] text-neutral-900">I&apos;m looking for work</b>
@@ -99,7 +98,7 @@ const Hero: React.FC = () => {
             className="flex items-center gap-3.5 bg-neutral-0 border-[1.5px] border-solid border-neutral-200 rounded-lg p-[16px_22px] text-left hover:border-primary-400 hover:shadow-md hover:-translate-y-0.5 transition duration-200 min-w-[250px] entry-card"
           >
             <span className="w-11 h-11 rounded-md bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0 emoji-badge">
-              <TalentSearchIcon className="w-6 h-6" />
+              <UserSearch className="w-6 h-6" />
             </span>
             <span>
               <b className="block text-[15px] text-neutral-900">I&apos;m hiring</b>
