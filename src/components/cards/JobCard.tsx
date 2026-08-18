@@ -2,6 +2,7 @@
 
 import React from "react";
 import CardHeading from "@/components/pages/typography/CardHeading";
+import { HeartIcon, LocationPinIcon, ListIcon } from "@/components/icons/JobCardIcons";
 import clsx from "clsx";
 
 export interface JobCardProps {
@@ -77,15 +78,7 @@ const JobCard: React.FC<JobCardProps> = ({
         )}
         aria-label="Save job"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill={isSaved ? "currentColor" : "none"}
-          stroke={isSaved ? "none" : "currentColor"}
-          strokeWidth="2"
-          className="w-4 h-4"
-        >
-          <path d="M12 21s-7.5-4.6-10-9.3C.5 8.4 2.2 5 5.6 5c2 0 3.4 1 6.4 4 3-3 4.4-4 6.4-4 3.4 0 5.1 3.4 3.6 6.7C19.5 16.4 12 21 12 21z" />
-        </svg>
+        <HeartIcon filled={isSaved} className="w-4 h-4" />
       </button>
 
       {/* Meta Row */}
@@ -116,16 +109,11 @@ const JobCard: React.FC<JobCardProps> = ({
       <div className="flex items-center justify-between gap-3.5 flex-wrap">
         <div className="flex flex-wrap gap-2">
           <span className="inline-flex items-center gap-[5px] text-[12px] font-semibold text-neutral-600 bg-neutral-50 border border-solid border-neutral-200 px-[11px] py-[5px] rounded-full">
-            <svg className="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 21s7-6.5 7-11a7 7 0 10-14 0c0 4.5 7 11 7 11z" />
-              <circle cx="12" cy="10" r="2.5" />
-            </svg>
+            <LocationPinIcon className="w-3 h-3 flex-shrink-0" />
             {location}
           </span>
           <span className="inline-flex items-center gap-[5px] text-[12px] font-semibold text-neutral-600 bg-neutral-50 border border-solid border-neutral-200 px-[11px] py-[5px] rounded-full">
-            <svg className="w-3 h-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
-            </svg>
+            <ListIcon className="w-3 h-3 flex-shrink-0" />
             {category}
           </span>
         </div>

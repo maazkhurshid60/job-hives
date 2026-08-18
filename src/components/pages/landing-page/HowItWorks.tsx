@@ -8,91 +8,14 @@ import CardHeading from "@/components/pages/typography/CardHeading";
 import CardDesc from "@/components/pages/typography/CardDesc";
 import clsx from "clsx";
 import { useReveal } from "@/hooks/useReveal";
-
-interface StepItem {
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-  isDip?: boolean;
-}
-
-const workerSteps: StepItem[] = [
-  {
-    icon: (
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-        <path d="M7 3h8l4 4v14H7V3z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <path d="M15 3v4h4" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <path d="M9.5 12h5M9.5 15h5M9.5 9h2.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    ),
-    title: "Create Your Profile",
-    desc: "Build a living profile with your skills, languages and experience — no CV needed.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    title: "Apply in One Click",
-    desc: "Browse filtered listings and apply instantly — no repeated forms, no waiting.",
-    isDip: true,
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-        <path d="M4 13a8 8 0 0116 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <rect x="3" y="13" width="4" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
-        <rect x="17" y="13" width="4" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    ),
-    title: "Get Hired",
-    desc: "Message directly with employers and start working — no bidding wars.",
-  },
-];
-
-const employerSteps: StepItem[] = [
-  {
-    icon: (
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-        <path d="M12 4v16M4 12h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    ),
-    title: "Post a Job Free",
-    desc: "Publish a listing in minutes with pay, platform and skill requirements.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-        <path d="M9 8V6a3 3 0 016 0v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <rect x="4" y="8" width="16" height="11" rx="2" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M4 13h16" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    ),
-    title: "Get Matched Fast",
-    desc: "Smart filters surface qualified applicants within minutes of posting.",
-    isDip: true,
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-        <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M8 10V7a4 4 0 018 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <circle cx="12" cy="15" r="1.4" fill="currentColor" />
-      </svg>
-    ),
-    title: "Unlock & Hire",
-    desc: "Upgrade to unlock contact details and message your shortlist directly.",
-  },
-];
+import { WORKER_STEPS, EMPLOYER_STEPS } from "@/constant/howItWorksData";
 
 const HowItWorks: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"worker" | "employer">("worker");
   const sectionHeadReveal = useReveal<HTMLDivElement>();
   const tabsReveal = useReveal<HTMLDivElement>();
 
-  const steps = activeTab === "worker" ? workerSteps : employerSteps;
+  const steps = activeTab === "worker" ? WORKER_STEPS : EMPLOYER_STEPS;
 
   return (
     <section className="py-[88px] bg-neutral-0 section" id="how-it-works">
@@ -165,7 +88,7 @@ const HowItWorks: React.FC = () => {
                       step.isDip ? "bg-primary-500 min-[861px]:bg-primary-600" : "bg-primary-500"
                     )}
                   >
-                    {step.icon}
+                    <step.icon className="w-6 h-6" />
                   </div>
                 </div>
 

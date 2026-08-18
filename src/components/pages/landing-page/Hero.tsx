@@ -3,6 +3,8 @@ import Image from "next/image";
 import Container from "@/components/common-layout/Container";
 import Link from "next/link";
 import ButtonSm from "@/components/button/ButtonSm";
+import { SearchGlassIcon, SparkleIcon, JobSearchIcon } from "@/components/icons/HeroIcons";
+import { TalentSearchIcon } from "@/components/icons/CommonIcons";
 
 const Hero: React.FC = () => {
   return (
@@ -52,9 +54,7 @@ const Hero: React.FC = () => {
 
         <h1 className="font-heading font-extrabold text-[clamp(32px,5.6vw,58px)] leading-[1.08] tracking-[-0.02em] text-neutral-900 relative inline-block">
           Hire remote talent, <span className="text-primary-500">the right way</span>
-          <svg className="absolute top-[-16px] right-[-32px] w-[26px] text-primary-400 [animation:sparkle_3.2s_ease-in-out_infinite] sparkle" viewBox="0 0 24 24" fill="none">
-            <path d="M12 0l1.7 7.3L21 9l-7.3 1.7L12 18l-1.7-7.3L3 9l7.3-1.7L12 0z" fill="currentColor"/>
-          </svg>
+          <SparkleIcon className="absolute top-[-16px] right-[-32px] w-[26px] text-primary-400 [animation:sparkle_3.2s_ease-in-out_infinite] sparkle" />
         </h1>
 
         <p className="text-[clamp(16px,2vw,18px)] text-neutral-600 max-w-[560px] mx-auto mt-5 mb-9 lead">
@@ -64,10 +64,7 @@ const Hero: React.FC = () => {
         {/* Search Bar */}
         <div className="bg-neutral-0 border border-solid border-neutral-200 rounded-md sm:rounded-md shadow-lg p-3.5 sm:p-2 sm:pl-5 max-w-[620px] mx-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2 hero-search">
           <span className="text-neutral-400 flex-shrink-0 hidden sm:flex items-center icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2"/>
-              <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
+            <SearchGlassIcon />
           </span>
           <input
             type="text"
@@ -90,14 +87,7 @@ const Hero: React.FC = () => {
             className="flex items-center gap-3.5 bg-neutral-0 border-[1.5px] border-solid border-neutral-200 rounded-lg p-[16px_22px] text-left hover:border-primary-400 hover:shadow-md hover:-translate-y-0.5 transition duration-200 min-w-[250px] entry-card"
           >
             <span className="w-11 h-11 rounded-md bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0 emoji-badge">
-              <svg className="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20" cy="20" r="14" stroke="currentColor" strokeWidth="4" />
-                <path d="M31 31l9 9" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-                <path d="M16 16v-2a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-                <rect x="11" y="16" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="2.5" />
-                <path d="M11 21h18" stroke="currentColor" strokeWidth="2.5" />
-                <rect x="18.5" y="19.5" width="3" height="3" rx="0.5" fill="currentColor" />
-              </svg>
+              <JobSearchIcon className="w-6 h-6" />
             </span>
             <span>
               <b className="block text-[15px] text-neutral-900">I&apos;m looking for work</b>
@@ -109,16 +99,7 @@ const Hero: React.FC = () => {
             className="flex items-center gap-3.5 bg-neutral-0 border-[1.5px] border-solid border-neutral-200 rounded-lg p-[16px_22px] text-left hover:border-primary-400 hover:shadow-md hover:-translate-y-0.5 transition duration-200 min-w-[250px] entry-card"
           >
             <span className="w-11 h-11 rounded-md bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0 emoji-badge">
-              <svg className="w-6 h-6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="5" fill="currentColor" />
-                <path d="M2 30c0-6.6 3.6-11 8-11s8 4.4 8 11" fill="currentColor" />
-                <circle cx="38" cy="10" r="5" fill="currentColor" />
-                <path d="M30 30c0-6.6 3.6-11 8-11s8 4.4 8 11" fill="currentColor" />
-                <circle cx="24" cy="22" r="10" stroke="currentColor" strokeWidth="3.5" />
-                <circle cx="24" cy="19" r="3" fill="currentColor" />
-                <path d="M18 27c0-3.6 2.7-6 6-6s6 2.4 6 6" fill="currentColor" />
-                <line x1="31.5" y1="29.5" x2="40" y2="38" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-              </svg>
+              <TalentSearchIcon className="w-6 h-6" />
             </span>
             <span>
               <b className="block text-[15px] text-neutral-900">I&apos;m hiring</b>
