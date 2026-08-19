@@ -162,22 +162,51 @@ img, svg {
 .hub { opacity: 0; transition: opacity .6s var(--ease) .1s; }
 .hero-visual.revealed .hub { opacity: 1; }
 
+/* Icon badges orbit the hub (see .orbit-ring / .orbit-track below) — their transform is owned
+   by the orbit animation, so only opacity fades in on reveal. */
 .icon-badge {
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .6s var(--ease), transform .6s var(--ease);
+  transition: opacity .6s var(--ease);
 }
-.hero-visual.revealed .icon-badge { opacity: 1; transform: translateY(0); }
+.hero-visual.revealed .icon-badge { opacity: 1; }
 .badge-1 { transition-delay: .05s; }
-.badge-2 { transition-delay: .12s; }
-.badge-3 { transition-delay: .19s; }
-.badge-4 { transition-delay: .26s; }
-.badge-5 { transition-delay: .33s; }
-.hero-visual.revealed .badge-1 { animation: floatY 6.4s ease-in-out .05s infinite; }
-.hero-visual.revealed .badge-2 { animation: floatY 7.2s ease-in-out .3s infinite; }
-.hero-visual.revealed .badge-3 { animation: floatY 6.8s ease-in-out .6s infinite; }
-.hero-visual.revealed .badge-4 { animation: floatY 7.6s ease-in-out .2s infinite; }
-.hero-visual.revealed .badge-5 { animation: floatY 6.2s ease-in-out .5s infinite; }
+.badge-2 { transition-delay: .16s; }
+.badge-3 { transition-delay: .27s; }
+.badge-4 { transition-delay: .38s; }
+
+/* Orbit ring — the circular "space" path the 4 icon badges travel along, centered on the hub.
+   Hidden by default; fades in together with the badges once the hub is revealed. */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed var(--primary-200);
+  opacity: 0;
+  transition: opacity .6s var(--ease);
+}
+.hero-visual.revealed .orbit-ring { opacity: .8; }
+
+/* Rotating carrier — spins clockwise continuously, sweeping the (fixed-angle) badges around the
+   hub. Position/size come from inline styles + Tailwind centering utilities in Hero.tsx. */
+.orbit-track {
+  position: absolute;
+  animation: orbitSpin 24s linear infinite;
+}
+
+/* Applied to each badge's inner box so it counter-rotates in lockstep with .orbit-track,
+   keeping the icon glyph upright while its position still revolves around the hub. */
+.orbit-counter {
+  animation: orbitCounterSpin 24s linear infinite;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitCounterSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
 
 /* Small drifting clouds, looping — inspired by the "ShaderHero" WebGL nebula shader's organic
    looping motion, rebuilt as lightweight pure-CSS puffs (classic 3-circle cloud shape) instead of a
@@ -211,12 +240,15 @@ img, svg {
 @media (prefers-reduced-motion: reduce) {
   .hub-ring,
   .icon-badge,
+  .orbit-track,
+  .orbit-counter,
   .cloud {
     animation: none !important;
   }
   .hero-inner,
   .hub,
-  .icon-badge {
+  .icon-badge,
+  .orbit-ring {
     transition: none !important;
   }
 }

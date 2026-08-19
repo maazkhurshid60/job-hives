@@ -4,7 +4,22 @@ import React, { useEffect, useRef } from "react";
 import Container from "@/components/common-layout/Container";
 import Link from "next/link";
 import ButtonSm from "@/components/button/ButtonSm";
-import { Search, Sparkles, Briefcase, Building2, User, MessageCircle, ShieldCheck, Calendar } from "lucide-react";
+import { Search, Briefcase, Building2, User, MessageCircle } from "lucide-react";
+
+// Fixed starting point on the ring for each badge — 0=right, 90=bottom, 180=left, 270=top
+// (standard screen-coordinate angles, clockwise). The whole ring then spins continuously
+// (see .orbit-track), carrying every badge around the hub together.
+const ORBIT_RADIUS = 170;
+const ORBIT_BADGES = [
+  { Icon: Briefcase, angle: 270, label: "Jobs" },
+  { Icon: MessageCircle, angle: 0, label: "Messaging" },
+  { Icon: Search, angle: 90, label: "Search jobs" },
+  { Icon: Building2, angle: 180, label: "Hiring" },
+].map(({ angle, ...rest }) => ({
+  ...rest,
+  x: ORBIT_RADIUS * Math.cos((angle * Math.PI) / 180),
+  y: ORBIT_RADIUS * Math.sin((angle * Math.PI) / 180),
+}));
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -224,19 +239,8 @@ const Hero: React.FC = () => {
 
       <Container className="relative z-10 hero-grid grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
         <div ref={heroInnerRef} className="max-w-[820px] lg:max-w-none text-center lg:text-left mx-auto lg:mx-0 hero-inner pending">
-          <span className="inline-flex items-center gap-2 bg-primary-50 text-primary-700 text-xs font-bold px-4 py-[7px] rounded-full mb-6 hero-eyebrow">
-            <span className="w-2.5 h-2.5 rounded-full bg-success-500 relative flex pulse">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-500 opacity-75" />
-            </span>
-            2,400+ jobs posted this month
-          </span>
-
           <h1 className="font-heading font-extrabold text-[32px] sm:text-[44px] md:text-[52px] lg:text-[54px] leading-[1.08] tracking-tight text-neutral-900 relative inline-block">
             Hire remote talent, <span className="text-primary-500">the right way</span>
-            <Sparkles
-              className="absolute top-[-18px] right-[-32px] w-[26px] h-[26px] text-primary-400 animate-[sparkle_3.2s_ease-in-out_infinite] motion-reduce:animate-none sparkle"
-              fill="currentColor"
-            />
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-neutral-600 max-w-[560px] mx-auto lg:mx-0 mt-5 mb-9 lead">
@@ -303,25 +307,37 @@ const Hero: React.FC = () => {
             <User className="relative z-[1] w-[52px] h-[52px] text-white" strokeWidth={1.8} />
           </div>
 
-          {/* Jobs */}
-          <div className="absolute w-14 h-14 rounded-lg bg-neutral-0 border border-primary-100 shadow-md flex items-center justify-center text-primary-600 z-[3] top-[6%] left-[14%] motion-reduce:animate-none icon-badge badge-1">
-            <Briefcase className="w-6 h-6" strokeWidth={1.8} />
-          </div>
-          {/* Messaging */}
-          <div className="absolute w-14 h-14 rounded-lg bg-neutral-0 border border-primary-100 shadow-md flex items-center justify-center text-primary-600 z-[3] top-[2%] right-[10%] motion-reduce:animate-none icon-badge badge-2">
-            <MessageCircle className="w-6 h-6" strokeWidth={1.8} />
-          </div>
-          {/* Verified talent */}
-          <div className="absolute w-14 h-14 rounded-lg bg-neutral-0 border border-primary-100 shadow-md flex items-center justify-center text-primary-600 z-[3] top-[42%] -right-[4%] motion-reduce:animate-none icon-badge badge-3">
-            <ShieldCheck className="w-6 h-6" strokeWidth={1.8} />
-          </div>
-          {/* Scheduling */}
-          <div className="absolute w-14 h-14 rounded-lg bg-neutral-0 border border-primary-100 shadow-md flex items-center justify-center text-primary-600 z-[3] bottom-[10%] right-[16%] motion-reduce:animate-none icon-badge badge-4">
-            <Calendar className="w-6 h-6" strokeWidth={1.8} />
-          </div>
-          {/* Search jobs */}
-          <div className="absolute w-14 h-14 rounded-lg bg-neutral-0 border border-primary-100 shadow-md flex items-center justify-center text-primary-600 z-[3] bottom-[4%] left-[10%] motion-reduce:animate-none icon-badge badge-5">
-            <Search className="w-6 h-6" strokeWidth={1.8} />
+          {/* Orbit ring — the circular path the 4 badges travel along, concentric with the hub */}
+          <div
+            className="orbit-ring top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{ width: ORBIT_RADIUS * 2, height: ORBIT_RADIUS * 2 }}
+          />
+
+          {/* Centering wrapper — static positioning only. A CSS animation on `transform` always
+              replaces any other transform on the same element, so the spin (.orbit-track below)
+              has to live on a separate, purely-rotating child rather than sharing this element. */}
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[3]"
+            style={{ width: ORBIT_RADIUS * 2, height: ORBIT_RADIUS * 2 }}
+          >
+            {/* Rotating carrier — sweeps the 4 badges clockwise around the hub; each badge
+                counter-rotates (.orbit-counter) so its icon glyph stays upright throughout. */}
+            <div className="orbit-track absolute inset-0">
+              {ORBIT_BADGES.map(({ Icon, x, y, label }, i) => (
+                <div
+                  key={label}
+                  className="absolute"
+                  style={{ top: `calc(50% + ${y}px)`, left: `calc(50% + ${x}px)`, transform: "translate(-50%, -50%)" }}
+                >
+                  <div
+                    className={`w-14 h-14 rounded-lg bg-neutral-0 border border-primary-100 shadow-md flex items-center justify-center text-primary-600 orbit-counter icon-badge badge-${i + 1}`}
+                    aria-label={label}
+                  >
+                    <Icon className="w-6 h-6" strokeWidth={1.8} />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Container>
