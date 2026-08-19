@@ -248,7 +248,7 @@ const Hero: React.FC = () => {
           </p>
 
           {/* Search Bar */}
-          <div className="bg-neutral-0 border border-solid border-neutral-200 rounded-lg sm:rounded-full shadow-lg p-3.5 sm:p-2 sm:pl-5 max-w-[620px] mx-auto lg:mx-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 hero-search">
+          <div className="bg-neutral-0 border border-solid border-neutral-200 rounded-lg sm:rounded-lg shadow-lg p-3.5 sm:p-2 sm:pl-5 max-w-[620px] mx-auto lg:mx-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 hero-search">
             <span className="text-neutral-400 flex-shrink-0 hidden sm:flex items-center icon">
               <Search className="w-[18px] h-[18px]" />
             </span>
