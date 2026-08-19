@@ -140,6 +140,7 @@ export interface JobListing {
   compensation: string;
   compensationShort: string;
   isPremium: boolean;
+  applicantCount: number;
   platforms: string[];
   software: string[];
   language: string;
@@ -164,6 +165,7 @@ export const JOBS: JobListing[] = [
     compensation: "$500 – $800 monthly",
     compensationShort: "$500–$800/mo",
     isPremium: true,
+    applicantCount: 42,
     platforms: ["Instagram", "OnlyFans", "Discord"],
     software: ["Chatting Tools", "CRM Platforms"],
     language: "English",
@@ -196,6 +198,7 @@ export const JOBS: JobListing[] = [
     compensation: "$3 hourly",
     compensationShort: "$3/hr",
     isPremium: false,
+    applicantCount: 18,
     platforms: ["TikTok", "Instagram"],
     software: ["Scheduling Tools", "Design Tools"],
     language: "English",
@@ -227,6 +230,7 @@ export const JOBS: JobListing[] = [
     compensation: "100% commission based on performance",
     compensationShort: "Commission-based",
     isPremium: false,
+    applicantCount: 63,
     platforms: ["Fansly", "Telegram"],
     software: ["CRM Platforms", "Chatting Tools"],
     language: "English",
@@ -258,6 +262,7 @@ export const JOBS: JobListing[] = [
     compensation: "$30 – $100 weekly",
     compensationShort: "$30–$100/wk",
     isPremium: false,
+    applicantCount: 27,
     platforms: ["YouTube", "TikTok"],
     software: ["Design Tools"],
     language: "English",
@@ -289,6 +294,7 @@ export const JOBS: JobListing[] = [
     compensation: "$3 – $5 hourly & 8% – 10%",
     compensationShort: "$3–$5/hr + 8–10%",
     isPremium: true,
+    applicantCount: 91,
     platforms: ["WhatsApp", "Discord"],
     software: ["CRM Platforms"],
     language: "English",
@@ -320,6 +326,7 @@ export const JOBS: JobListing[] = [
     compensation: "$400 – $650 monthly",
     compensationShort: "$400–$650/mo",
     isPremium: false,
+    applicantCount: 34,
     platforms: ["Instagram", "Twitter / X"],
     software: ["Scheduling Tools"],
     language: "English",
@@ -351,6 +358,7 @@ export const JOBS: JobListing[] = [
     compensation: "$500 – $800 monthly",
     compensationShort: "$500–$800/mo",
     isPremium: true,
+    applicantCount: 76,
     platforms: ["Reddit", "Threads"],
     software: [],
     language: "English",
@@ -382,6 +390,7 @@ export const JOBS: JobListing[] = [
     compensation: "$4 hourly",
     compensationShort: "$4/hr",
     isPremium: false,
+    applicantCount: 12,
     platforms: ["OnlyFans", "TikTok"],
     software: ["Chatting Tools"],
     language: "French",
@@ -413,6 +422,7 @@ export const JOBS: JobListing[] = [
     compensation: "$350 – $500 monthly",
     compensationShort: "$350–$500/mo",
     isPremium: false,
+    applicantCount: 55,
     platforms: ["Telegram", "WhatsApp"],
     software: ["CRM Platforms"],
     language: "Chinese",

@@ -2,16 +2,15 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Container from "@/components/common-layout/Container";
 import SubHeading from "@/components/pages/typography/SubHeading";
 import Paragraph from "@/components/pages/typography/Paragraph";
-import JobCard from "@/components/cards/JobCard";
+import FindJobCard from "@/components/cards/FindJobCard";
 import CategorySidebar from "@/components/pages/landing-page/CategorySidebar";
 import JobFilterBar, { type JobFilter } from "@/components/pages/landing-page/JobFilterBar";
 import clsx from "clsx";
 import { useReveal } from "@/hooks/useReveal";
-import { JOBS, CATEGORY_PILLS, getAccentForCategory, getCategoryJobCount, getCategoryIcon } from "@/constant/findJobsData";
+import { JOBS, CATEGORY_PILLS, getCategoryJobCount, getCategoryIcon } from "@/constant/findJobsData";
 
 const CATEGORIES_FOR_SIDEBAR = CATEGORY_PILLS.filter((cat) => cat.key !== "all").map((cat) => ({
   key: cat.key,
@@ -25,16 +24,10 @@ const CATEGORIES_FOR_SIDEBAR = CATEGORY_PILLS.filter((cat) => cat.key !== "all")
 const DEFAULT_CATEGORY = CATEGORIES_FOR_SIDEBAR.find((c) => getCategoryJobCount(c.key) > 0)?.key ?? "chatting";
 
 const FeaturedJobs: React.FC = () => {
-  const router = useRouter();
   const [activeCategory, setActiveCategory] = useState(DEFAULT_CATEGORY);
   const [activeFilter, setActiveFilter] = useState<JobFilter>("latest");
-  const [savedJobs, setSavedJobs] = useState<Record<string, boolean>>({});
   const sectionHeadReveal = useReveal<HTMLDivElement>();
   const jobsLayoutReveal = useReveal<HTMLDivElement>();
-
-  const toggleSaveJob = (id: string) => {
-    setSavedJobs((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
 
   const filteredJobs = JOBS.filter(
     (job) =>
@@ -71,22 +64,8 @@ const FeaturedJobs: React.FC = () => {
             <JobFilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} count={filteredJobs.length} />
 
             <div className="flex flex-col gap-3.5 job-list">
-              {filteredJobs.map((job) => (
-                <JobCard
-                  key={job.id}
-                  title={job.title}
-                  type={job.type}
-                  timeAgo={job.postedLabel.replace(/^Posted /, "")}
-                  pay={job.compensation}
-                  paySuffix=""
-                  location={job.location}
-                  category={job.categoryLabel}
-                  isPremium={job.isPremium}
-                  accentVariant={getAccentForCategory(job.categoryKey)}
-                  isSaved={!!savedJobs[job.id]}
-                  onSaveToggle={() => toggleSaveJob(job.id)}
-                  onApply={() => router.push(`/job/${job.id}`)}
-                />
+              {filteredJobs.map((job, i) => (
+                <FindJobCard key={job.id} job={job} isList variantIndex={i} />
               ))}
             </div>
 

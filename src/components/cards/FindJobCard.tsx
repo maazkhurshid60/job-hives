@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Bookmark } from "lucide-react";
+import { Bookmark, Sparkles, Users } from "lucide-react";
 import clsx from "clsx";
 import type { JobListing } from "@/constant/findJobsData";
 
@@ -26,18 +26,26 @@ const FindJobCard: React.FC<FindJobCardProps> = ({ job, isList = false, variantI
   return (
     <div
       className={clsx(
-        "relative h-full rounded-2xl overflow-hidden border border-solid border-neutral-200/70 flex flex-col transition-all duration-200 hover:shadow-lg  job-card",
+        "relative h-full rounded-2xl overflow-hidden border-2 border-solid flex flex-col transition-all duration-200 hover:shadow-lg  job-card",
         isList && "min-[1120px]:flex-row",
+        job.isPremium ? "border-warning-400" : "border-neutral-200/70",
         bgClass
       )}
     >
       <Link href={href} aria-label={`View job: ${job.title}`} className="absolute inset-0 z-[1] job-card-link" />
 
       <div className={clsx("relative z-[2] flex flex-col gap-3.5 p-5 pb-4 flex-1", isList && "min-[1120px]:pb-5")}>
-        <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold text-neutral-700 bg-neutral-0 rounded-full px-3 py-1.5 shadow-sm whitespace-nowrap posted">
-            {job.postedLabel.replace(/^Posted /, "")}
-          </span>
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span className="text-xs font-semibold text-neutral-700 bg-neutral-0 rounded-full px-3 py-1.5 shadow-sm whitespace-nowrap posted">
+              {job.postedLabel.replace(/^Posted /, "")}
+            </span>
+            {job.isPremium && (
+              <span className="text-xs font-bold text-warning-700 bg-warning-50 rounded-full px-2.5 py-1.5 shadow-sm whitespace-nowrap inline-flex items-center gap-1 featured-badge">
+                <Sparkles className="w-3 h-3" /> Featured
+              </span>
+            )}
+          </div>
           <button
             type="button"
             onClick={() => setSaved((v) => !v)}
@@ -65,6 +73,11 @@ const FindJobCard: React.FC<FindJobCardProps> = ({ job, isList = false, variantI
             </span>
           ))}
         </div>
+
+        <div className="flex items-center gap-1 text-[11.5px] font-medium text-neutral-600 applicants">
+          <Users className="w-3 h-3" />
+          {job.applicantCount} applicants
+        </div>
       </div>
 
       <div
@@ -75,7 +88,9 @@ const FindJobCard: React.FC<FindJobCardProps> = ({ job, isList = false, variantI
       >
         <div>
           <div className="text-base font-bold text-neutral-900 comp">{job.compensationShort}</div>
-          <div className="text-xs text-neutral-500 loc">{job.location}</div>
+          <div className="text-xs text-neutral-500 loc">
+            {job.locationEmoji} {job.location}
+          </div>
         </div>
         <Link
           href={href}
