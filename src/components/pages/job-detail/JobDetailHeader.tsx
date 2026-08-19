@@ -1,6 +1,7 @@
 import React from "react";
 import { Languages } from "lucide-react";
 import { type JobListing, getCategoryIcon, getPlatformIcon } from "@/constant/findJobsData";
+import FlagIcon from "@/components/icons/FlagIcon";
 
 interface JobDetailHeaderProps {
   job: JobListing;
@@ -35,7 +36,7 @@ const JobDetailHeader: React.FC<JobDetailHeaderProps> = ({ job }) => {
           <Languages className="w-3.5 h-3.5" /> {job.language} required
         </span>
         <span className="flex items-center gap-1.5">
-          {job.locationEmoji} {job.location}
+          <FlagIcon countryCode={job.countryCode} /> {job.location}
         </span>
       </div>
     </div>

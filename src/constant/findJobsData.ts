@@ -144,7 +144,8 @@ export interface JobListing {
   platforms: string[];
   software: string[];
   language: string;
-  locationEmoji: string;
+  /** ISO 3166-1 alpha-2 country code for rendering a real SVG flag; null for remote/global roles. */
+  countryCode: string | null;
   location: string;
   postedLabel: string;
   postedHoursAgo: number;
@@ -169,7 +170,7 @@ export const JOBS: JobListing[] = [
     platforms: ["Instagram", "OnlyFans", "Discord"],
     software: ["Chatting Tools", "CRM Platforms"],
     language: "English",
-    locationEmoji: "🇺🇸",
+    countryCode: "US",
     location: "United States",
     postedLabel: "Posted 2 hours ago",
     postedHoursAgo: 2,
@@ -202,7 +203,7 @@ export const JOBS: JobListing[] = [
     platforms: ["TikTok", "Instagram"],
     software: ["Scheduling Tools", "Design Tools"],
     language: "English",
-    locationEmoji: "🇵🇭",
+    countryCode: "PH",
     location: "Philippines",
     postedLabel: "Posted 40 minutes ago",
     postedHoursAgo: 0.67,
@@ -234,7 +235,7 @@ export const JOBS: JobListing[] = [
     platforms: ["Fansly", "Telegram"],
     software: ["CRM Platforms", "Chatting Tools"],
     language: "English",
-    locationEmoji: "🌍",
+    countryCode: null,
     location: "Remote",
     postedLabel: "Posted 5 hours ago",
     postedHoursAgo: 5,
@@ -266,7 +267,7 @@ export const JOBS: JobListing[] = [
     platforms: ["YouTube", "TikTok"],
     software: ["Design Tools"],
     language: "English",
-    locationEmoji: "🇩🇪",
+    countryCode: "DE",
     location: "Germany",
     postedLabel: "Posted 1 day ago",
     postedHoursAgo: 24,
@@ -298,7 +299,7 @@ export const JOBS: JobListing[] = [
     platforms: ["WhatsApp", "Discord"],
     software: ["CRM Platforms"],
     language: "English",
-    locationEmoji: "🌍",
+    countryCode: null,
     location: "Remote",
     postedLabel: "Posted 3 hours ago",
     postedHoursAgo: 3,
@@ -330,7 +331,7 @@ export const JOBS: JobListing[] = [
     platforms: ["Instagram", "Twitter / X"],
     software: ["Scheduling Tools"],
     language: "English",
-    locationEmoji: "🇨🇦",
+    countryCode: "CA",
     location: "Canada",
     postedLabel: "Posted 6 hours ago",
     postedHoursAgo: 6,
@@ -362,7 +363,7 @@ export const JOBS: JobListing[] = [
     platforms: ["Reddit", "Threads"],
     software: [],
     language: "English",
-    locationEmoji: "🌍",
+    countryCode: null,
     location: "Remote",
     postedLabel: "Posted 12 hours ago",
     postedHoursAgo: 12,
@@ -394,7 +395,7 @@ export const JOBS: JobListing[] = [
     platforms: ["OnlyFans", "TikTok"],
     software: ["Chatting Tools"],
     language: "French",
-    locationEmoji: "🇫🇷",
+    countryCode: "FR",
     location: "France",
     postedLabel: "Posted 22 hours ago",
     postedHoursAgo: 22,
@@ -426,7 +427,7 @@ export const JOBS: JobListing[] = [
     platforms: ["Telegram", "WhatsApp"],
     software: ["CRM Platforms"],
     language: "Chinese",
-    locationEmoji: "🇭🇰",
+    countryCode: "HK",
     location: "Hong Kong",
     postedLabel: "Posted 2 days ago",
     postedHoursAgo: 48,

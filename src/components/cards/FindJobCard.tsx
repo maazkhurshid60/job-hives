@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Bookmark, Sparkles, Users } from "lucide-react";
 import clsx from "clsx";
 import type { JobListing } from "@/constant/findJobsData";
+import FlagIcon from "@/components/icons/FlagIcon";
 
 interface FindJobCardProps {
   job: JobListing;
@@ -88,8 +89,11 @@ const FindJobCard: React.FC<FindJobCardProps> = ({ job, isList = false, variantI
       >
         <div>
           <div className="text-base font-bold text-neutral-900 comp">{job.compensationShort}</div>
-          <div className="text-xs text-neutral-500 loc">
-            {job.locationEmoji} {job.location}
+          <div className={clsx("text-xs text-neutral-500 loc flex items-center justify-start gap-1.5", isList && "min-[1120px]:justify-end")}>
+            <FlagIcon countryCode={job.countryCode} />
+            {job.location}
+            <span className="w-[3px] h-[3px] rounded-full bg-neutral-400 flex-shrink-0" />
+            {job.language}
           </div>
         </div>
         <Link
