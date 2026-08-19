@@ -21,35 +21,35 @@ const LandingPageWrapper: React.FC<LandingPageWrapperProps> = ({ children }) => 
       {mobileMenuOpen && (
         <div className="fixed inset-0 top-[72px] bg-neutral-0 z-40 p-6 flex flex-col gap-1 overflow-y-auto min-[861px]:hidden">
           <Link
-            href="#find-jobs"
+            href="/find-jobs"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >
             Find Jobs
           </Link>
           <Link
-            href="#find-workers"
+            href="/#find-workers"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >
             Find Workers
           </Link>
           <Link
-            href="#how-it-works"
+            href="/#how-it-works"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >
             How It Works
           </Link>
           <Link
-            href="#pricing"
+            href="/#pricing"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >
             Pricing
           </Link>
           <Link
-            href="#login"
+            href="/#login"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >
@@ -57,7 +57,7 @@ const LandingPageWrapper: React.FC<LandingPageWrapperProps> = ({ children }) => 
           </Link>
           <ButtonSm
             text="Sign Up"
-            url="#signup"
+            url="/#signup"
             onClick={() => setMobileMenuOpen(false)}
             className="mt-4 w-full py-3"
           />

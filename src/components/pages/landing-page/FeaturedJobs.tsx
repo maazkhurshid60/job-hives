@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Container from "@/components/common-layout/Container";
 import SubHeading from "@/components/pages/typography/SubHeading";
 import Paragraph from "@/components/pages/typography/Paragraph";
@@ -9,12 +11,24 @@ import CategorySidebar from "@/components/pages/landing-page/CategorySidebar";
 import JobFilterBar, { type JobFilter } from "@/components/pages/landing-page/JobFilterBar";
 import clsx from "clsx";
 import { useReveal } from "@/hooks/useReveal";
-import { CATEGORIES_DATA, INITIAL_JOBS } from "@/constant/featuredJobsData";
+import { JOBS, CATEGORY_PILLS, getAccentForCategory, getCategoryJobCount, getCategoryIcon } from "@/constant/findJobsData";
+
+const CATEGORIES_FOR_SIDEBAR = CATEGORY_PILLS.filter((cat) => cat.key !== "all").map((cat) => ({
+  key: cat.key,
+  icon: getCategoryIcon(cat.key),
+  label: cat.label,
+  bgClass: cat.bgClass,
+  textClass: cat.textClass,
+  count: getCategoryJobCount(cat.key),
+}));
+
+const DEFAULT_CATEGORY = CATEGORIES_FOR_SIDEBAR.find((c) => getCategoryJobCount(c.key) > 0)?.key ?? "chatting";
 
 const FeaturedJobs: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("Chat Management");
+  const router = useRouter();
+  const [activeCategory, setActiveCategory] = useState(DEFAULT_CATEGORY);
   const [activeFilter, setActiveFilter] = useState<JobFilter>("latest");
-  const [savedJobs, setSavedJobs] = useState<Record<string, boolean>>({ "job-3": true });
+  const [savedJobs, setSavedJobs] = useState<Record<string, boolean>>({});
   const sectionHeadReveal = useReveal<HTMLDivElement>();
   const jobsLayoutReveal = useReveal<HTMLDivElement>();
 
@@ -22,9 +36,9 @@ const FeaturedJobs: React.FC = () => {
     setSavedJobs((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const filteredJobs = INITIAL_JOBS.filter(
+  const filteredJobs = JOBS.filter(
     (job) =>
-      job.category === activeCategory &&
+      job.categoryKey === activeCategory &&
       (activeFilter === "latest" || (activeFilter === "premium" && job.isPremium))
   );
 
@@ -40,7 +54,7 @@ const FeaturedJobs: React.FC = () => {
           </span>
           <SubHeading className="mb-3">Fresh jobs, updated daily</SubHeading>
           <Paragraph className="text-neutral-600 text-base">
-            Browse by category, platform or pay type — a sample of what&apos;s live right now.
+            {JOBS.length} open roles right now — browse by category, platform or pay type.
           </Paragraph>
         </div>
 
@@ -51,18 +65,27 @@ const FeaturedJobs: React.FC = () => {
             jobsLayoutReveal.className
           )}
         >
-          <CategorySidebar categories={CATEGORIES_DATA} activeCategory={activeCategory} onSelect={setActiveCategory} />
+          <CategorySidebar categories={CATEGORIES_FOR_SIDEBAR} activeCategory={activeCategory} onSelect={setActiveCategory} />
 
           <div className="w-full jobs-main">
-            <JobFilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+            <JobFilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} count={filteredJobs.length} />
 
             <div className="flex flex-col gap-3.5 job-list">
               {filteredJobs.map((job) => (
                 <JobCard
                   key={job.id}
-                  {...job}
+                  title={job.title}
+                  type={job.type}
+                  timeAgo={job.postedLabel.replace(/^Posted /, "")}
+                  pay={job.compensation}
+                  paySuffix=""
+                  location={job.location}
+                  category={job.categoryLabel}
+                  isPremium={job.isPremium}
+                  accentVariant={getAccentForCategory(job.categoryKey)}
                   isSaved={!!savedJobs[job.id]}
                   onSaveToggle={() => toggleSaveJob(job.id)}
+                  onApply={() => router.push(`/job/${job.id}`)}
                 />
               ))}
             </div>
@@ -74,9 +97,12 @@ const FeaturedJobs: React.FC = () => {
             )}
 
             <div className="text-center mt-9 view-all-wrap">
-              <button className="font-body font-semibold text-sm cursor-pointer select-none inline-flex items-center justify-center gap-2 transition duration-150 px-5 py-3 border border-solid border-primary-500 text-primary-600 hover:bg-primary-50 rounded-full bg-neutral-0">
+              <Link
+                href="/find-jobs"
+                className="font-body font-semibold text-sm cursor-pointer select-none inline-flex items-center justify-center gap-2 transition duration-150 px-5 py-3 border border-solid border-primary-500 text-primary-600 hover:bg-primary-50 rounded-full bg-neutral-0"
+              >
                 View All Jobs
-              </button>
+              </Link>
             </div>
           </div>
         </div>

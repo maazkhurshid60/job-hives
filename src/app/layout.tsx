@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-hanken-grotesk",
   weight: ["400", "500", "600", "700", "800"],
 });
 
@@ -21,10 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${hankenGrotesk.variable} antialiased`}
         style={{
-          "--font-body": "var(--font-inter)",
-          "--font-heading": "var(--font-inter)",
+          "--font-body": "var(--font-hanken-grotesk)",
+          "--font-heading": "var(--font-hanken-grotesk)",
         } as React.CSSProperties}
       >
         {children}

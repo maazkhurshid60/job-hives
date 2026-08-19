@@ -1,8 +1,12 @@
+"use client";
+
 import React from "react";
 import Container from "@/components/common-layout/Container";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ButtonSm from "@/components/button/ButtonSm";
 import { Menu, X } from "lucide-react";
+import clsx from "clsx";
 
 interface NavbarProps {
   onHamburgerClick?: () => void;
@@ -10,6 +14,9 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false }) => {
+  const pathname = usePathname();
+  const isFindJobs = pathname?.startsWith("/find-jobs") || pathname?.startsWith("/job/");
+
   return (
     <header className="sticky top-0 z-50 bg-neutral-0 border-b border-solid border-neutral-200 navbar">
       <Container className="flex items-center justify-between h-[72px]">
@@ -18,28 +25,34 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false })
           JobHive
         </Link>
         <nav className="hidden min-[861px]:flex items-center gap-8 links">
-          <Link href="#find-jobs" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
+          <Link
+            href="/find-jobs"
+            className={clsx(
+              "text-sm font-semibold transition-colors duration-150",
+              isFindJobs ? "text-primary-600" : "text-neutral-600 hover:text-primary-600"
+            )}
+          >
             Find Jobs
           </Link>
-          <Link href="#find-workers" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
+          <Link href="/#find-workers" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
             Find Workers
           </Link>
-          <Link href="#how-it-works" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
+          <Link href="/#how-it-works" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
             How It Works
           </Link>
-          <Link href="#pricing" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
+          <Link href="/#pricing" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
             Pricing
           </Link>
         </nav>
         <div className="flex items-center gap-3 nav-actions">
           <ButtonSm
-            url="#login"
+            url="/#login"
             text="Log in"
             bgColor="bg-transparent hover:bg-neutral-100 text-neutral-700"
             className="hidden min-[861px]:inline-flex"
           />
           <ButtonSm
-            url="#signup"
+            url="/#signup"
             text="Sign Up"
             bgColor="bg-transparent hover:bg-primary-50 text-primary-600 border-[1.5px] border-primary-500"
             isBorder
