@@ -1,4 +1,11 @@
-import { IdCard, CheckCircle2, Headset, FilePlus2, ListChecks, Unlock } from "lucide-react";
+import {
+  CreateProfileIcon,
+  ApplyOneClickIcon,
+  GetHiredIcon,
+  PostJobIcon,
+  GetMatchedIcon,
+  UnlockHireIcon,
+} from "@/components/icons/HowItWorksIcons";
 import type { ComponentType } from "react";
 
 export interface StepItem {
@@ -10,18 +17,18 @@ export interface StepItem {
 
 export const WORKER_STEPS: StepItem[] = [
   {
-    icon: IdCard,
+    icon: CreateProfileIcon,
     title: "Create Your Profile",
     desc: "Build a living profile with your skills, languages and experience — no CV needed.",
   },
   {
-    icon: CheckCircle2,
+    icon: ApplyOneClickIcon,
     title: "Apply in One Click",
     desc: "Browse filtered listings and apply instantly — no repeated forms, no waiting.",
     isDip: true,
   },
   {
-    icon: Headset,
+    icon: GetHiredIcon,
     title: "Get Hired",
     desc: "Message directly with employers and start working — no bidding wars.",
   },
@@ -29,18 +36,18 @@ export const WORKER_STEPS: StepItem[] = [
 
 export const EMPLOYER_STEPS: StepItem[] = [
   {
-    icon: FilePlus2,
+    icon: PostJobIcon,
     title: "Post a Job Free",
     desc: "Publish a listing in minutes with pay, platform and skill requirements.",
   },
   {
-    icon: ListChecks,
+    icon: GetMatchedIcon,
     title: "Get Matched Fast",
     desc: "Smart filters surface qualified applicants within minutes of posting.",
     isDip: true,
   },
   {
-    icon: Unlock,
+    icon: UnlockHireIcon,
     title: "Unlock & Hire",
     desc: "Upgrade to unlock contact details and message your shortlist directly.",
   },

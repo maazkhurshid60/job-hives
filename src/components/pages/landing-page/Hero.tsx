@@ -215,7 +215,7 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[600px] overflow-hidden pt-24 pb-16 hero"
+      className="relative min-h-[600px] overflow-hidden pt-16 pb-16 hero"
       style={{ background: "linear-gradient(180deg, #fff 0%, var(--primary-50) 100%)" }}
     >
       {/* Small drifting clouds — inspired by the "ShaderHero" WebGL nebula shader's organic looping

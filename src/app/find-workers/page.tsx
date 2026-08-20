@@ -12,6 +12,7 @@ import Pagination from "@/components/pages/shared/Pagination";
 import WorkerCard from "@/components/cards/worker/WorkerCard";
 import { WORKERS } from "@/constant/findWorkersData";
 import { WorkerUnlockProvider } from "@/context/WorkerUnlockContext";
+import { FIND_WORKERS_HERO_VIDEO } from "@/constant/heroVideos";
 
 const PAGE_SIZE = 9;
 
@@ -84,6 +85,7 @@ export default function FindWorkersPage() {
         <PageHero
           title="Build your dream team"
           subtitle="Skip the guesswork. Meet who's actually available."
+          videoSrc={FIND_WORKERS_HERO_VIDEO}
           textValue={filters.searchText}
           onTextChange={(v) => handleFilterChange("searchText", v)}
           textPlaceholder="Search by name or skill"

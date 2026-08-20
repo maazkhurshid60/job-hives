@@ -10,6 +10,7 @@ import ResultsBar, { type ViewMode } from "@/components/pages/shared/ResultsBar"
 import Pagination from "@/components/pages/shared/Pagination";
 import FindJobCard from "@/components/cards/FindJobCard";
 import { JOBS } from "@/constant/findJobsData";
+import { FIND_JOBS_HERO_VIDEO } from "@/constant/heroVideos";
 
 type SortOrder = "newest" | "oldest";
 
@@ -87,6 +88,7 @@ export default function FindJobsPage() {
       <PageHero
         title="Your next gig is closer than you think"
         subtitle="Real jobs. Real pay. No fluff."
+        videoSrc={FIND_JOBS_HERO_VIDEO}
         textValue={filters.searchText}
         onTextChange={(v) => handleFilterChange("searchText", v)}
         textPlaceholder="Search by title or company"

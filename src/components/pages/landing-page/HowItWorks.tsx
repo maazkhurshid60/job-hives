@@ -63,7 +63,7 @@ const HowItWorks: React.FC = () => {
                   {/* Content card */}
                   <div className="relative z-10 h-full flex flex-col bg-neutral-0 border border-solid border-neutral-100 rounded-lg rounded-br-[70px] pt-[34px] pb-[26px] px-5 text-center shadow-sm transition-all duration-200 group-hover:shadow-md step-card">
                     <div className="w-[46px] h-[46px] rounded-md bg-neutral-50 mx-auto mb-4 flex items-center justify-center step-icon">
-                      <step.icon className="w-[22px] h-[22px] text-primary-600" />
+                      <step.icon className="w-[28px] h-[28px] text-primary-600" />
                     </div>
                     <CardHeading className="text-[15.5px] mb-2">{step.title}</CardHeading>
                     <CardDesc className="text-[13.5px] leading-relaxed text-neutral-600">{step.desc}</CardDesc>

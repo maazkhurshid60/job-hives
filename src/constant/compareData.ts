@@ -38,7 +38,7 @@ export const COMPARE_NEW: ComparePanelData = {
   items: [
     { title: "Verified & tested talent", desc: "ID checks plus skill assessments, completed before a profile ever reaches you." },
     { title: "One dashboard, every hire", desc: "Post, message, track and pay — nothing scattered across five different apps." },
-    { title: "Built-in payment protection", desc: "Funds held safely until milestones are approved on both sides." },
+    { title: "Verified agencies & anti-scam checks", desc: "Every agency is ID-checked, and our team is on hand for dispute support if something goes wrong." },
     { title: "A pipeline that never runs dry", desc: "Thousands of vetted workers and new signups join daily." },
   ],
   stats: [
