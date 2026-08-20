@@ -3,13 +3,20 @@
 import React, { useEffect, useMemo, useState } from "react";
 import LandingPageWrapper from "@/components/wrappers/LandingPageWrapper";
 import Container from "@/components/common-layout/Container";
-import FindJobsHero from "@/components/pages/find-jobs/FindJobsHero";
+import PageHero from "@/components/pages/shared/PageHero";
 import FilterBar from "@/components/pages/find-jobs/FilterBar";
 import type { FindJobsFilters } from "@/components/pages/find-jobs/types";
-import JobsResultsBar, { type SortOrder, type ViewMode } from "@/components/pages/find-jobs/JobsResultsBar";
-import Pagination from "@/components/pages/find-jobs/Pagination";
+import ResultsBar, { type ViewMode } from "@/components/pages/shared/ResultsBar";
+import Pagination from "@/components/pages/shared/Pagination";
 import FindJobCard from "@/components/cards/FindJobCard";
 import { JOBS } from "@/constant/findJobsData";
+
+type SortOrder = "newest" | "oldest";
+
+const JOB_SORT_OPTIONS = [
+  { value: "newest", label: "Sort by date: Newest first" },
+  { value: "oldest", label: "Sort by date: Oldest first" },
+];
 
 const PAGE_SIZE = 8;
 
@@ -77,7 +84,16 @@ export default function FindJobsPage() {
 
   return (
     <LandingPageWrapper>
-      <FindJobsHero filters={filters} onChange={handleFilterChange} />
+      <PageHero
+        title="Your next gig is closer than you think"
+        subtitle="Real jobs. Real pay. No fluff."
+        textValue={filters.searchText}
+        onTextChange={(v) => handleFilterChange("searchText", v)}
+        textPlaceholder="Search by title or company"
+        locationValue={filters.searchLocation}
+        onLocationChange={(v) => handleFilterChange("searchLocation", v)}
+        locationPlaceholder="Search by city or country"
+      />
 
       <Container>
         <FilterBar filters={filters} onChange={handleFilterChange} />
@@ -85,7 +101,15 @@ export default function FindJobsPage() {
 
       <section className="py-[88px] section">
         <Container>
-          <JobsResultsBar count={filteredJobs.length} sort={sort} onSortChange={setSort} view={view} onViewChange={setView} />
+          <ResultsBar
+            count={filteredJobs.length}
+            itemLabel="job"
+            sort={sort}
+            sortOptions={JOB_SORT_OPTIONS}
+            onSortChange={(v) => setSort(v as SortOrder)}
+            view={view}
+            onViewChange={setView}
+          />
 
           {pageJobs.length > 0 ? (
             <div

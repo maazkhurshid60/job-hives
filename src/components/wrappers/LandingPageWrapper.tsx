@@ -28,7 +28,7 @@ const LandingPageWrapper: React.FC<LandingPageWrapperProps> = ({ children }) => 
             Find Jobs
           </Link>
           <Link
-            href="/#find-workers"
+            href="/find-workers"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >

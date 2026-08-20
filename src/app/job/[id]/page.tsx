@@ -35,12 +35,12 @@ export default async function JobDetailPage({ params }: JobDetailPageProps) {
       </Container>
 
       <Container className="pt-5 pb-20 detail-wrap">
-        <div className="grid grid-cols-1 min-[960px]:grid-cols-[2fr_1fr] gap-7 detail-grid">
-          <div className="order-2 min-[960px]:order-1">
+        <div className="grid grid-cols-1 min-[1024px]:grid-cols-[2fr_1fr] gap-7 detail-grid">
+          <div className="order-2 min-[1024px]:order-1">
             <JobDetailHeader job={job} />
             <JobDetailBody job={job} />
           </div>
-          <ApplyCard job={job} className="order-1 min-[960px]:order-2" />
+          <ApplyCard job={job} className="order-1 min-[1024px]:order-2" />
         </div>
       </Container>
 

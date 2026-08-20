@@ -2,14 +2,24 @@
 
 import React from "react";
 import { Search, MapPin } from "lucide-react";
-import type { FindJobsFilters, FindJobsFilterChange } from "@/components/pages/find-jobs/types";
 
 interface HeroSearchBarProps {
-  filters: Pick<FindJobsFilters, "searchText" | "searchLocation">;
-  onChange: FindJobsFilterChange;
+  textValue: string;
+  onTextChange: (value: string) => void;
+  textPlaceholder: string;
+  locationValue: string;
+  onLocationChange: (value: string) => void;
+  locationPlaceholder: string;
 }
 
-const HeroSearchBar: React.FC<HeroSearchBarProps> = ({ filters, onChange }) => {
+const HeroSearchBar: React.FC<HeroSearchBarProps> = ({
+  textValue,
+  onTextChange,
+  textPlaceholder,
+  locationValue,
+  onLocationChange,
+  locationPlaceholder,
+}) => {
   return (
     <div className="relative z-[2] w-full max-w-[720px] mx-auto mt-8 hero-search-bar">
       <div className="flex items-center gap-2 bg-neutral-0 rounded-lg shadow-lg border border-solid border-neutral-200 px-2 py-2 flex-wrap search-row">
@@ -19,9 +29,9 @@ const HeroSearchBar: React.FC<HeroSearchBarProps> = ({ filters, onChange }) => {
           </span>
           <input
             type="text"
-            placeholder="Search by title or company"
-            value={filters.searchText}
-            onChange={(e) => onChange("searchText", e.target.value)}
+            placeholder={textPlaceholder}
+            value={textValue}
+            onChange={(e) => onTextChange(e.target.value)}
             className="flex-1 border-none outline-none text-[14.5px] text-neutral-800 bg-transparent min-w-0"
           />
         </div>
@@ -32,9 +42,9 @@ const HeroSearchBar: React.FC<HeroSearchBarProps> = ({ filters, onChange }) => {
           </span>
           <input
             type="text"
-            placeholder="Search by city or country"
-            value={filters.searchLocation}
-            onChange={(e) => onChange("searchLocation", e.target.value)}
+            placeholder={locationPlaceholder}
+            value={locationValue}
+            onChange={(e) => onLocationChange(e.target.value)}
             className="flex-1 border-none outline-none text-[14.5px] text-neutral-800 bg-transparent min-w-0"
           />
         </div>

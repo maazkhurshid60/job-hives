@@ -16,6 +16,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false }) => {
   const pathname = usePathname();
   const isFindJobs = pathname?.startsWith("/find-jobs") || pathname?.startsWith("/job/");
+  const isFindWorkers = pathname?.startsWith("/find-workers") || pathname?.startsWith("/worker/");
 
   return (
     <header className="sticky top-0 z-50 bg-neutral-0 border-b border-solid border-neutral-200 navbar">
@@ -34,7 +35,13 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false })
           >
             Find Jobs
           </Link>
-          <Link href="/#find-workers" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
+          <Link
+            href="/find-workers"
+            className={clsx(
+              "text-sm font-semibold transition-colors duration-150",
+              isFindWorkers ? "text-primary-600" : "text-neutral-600 hover:text-primary-600"
+            )}
+          >
             Find Workers
           </Link>
           <Link href="/#how-it-works" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">

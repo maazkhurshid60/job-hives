@@ -127,7 +127,7 @@ export const SOCIAL_MEDIA_OPTIONS = [
 
 export const SOFTWARE_OPTIONS = ["Chatting Tools", "CRM Platforms", "Scheduling Tools", "Design Tools"];
 
-export const LANGUAGE_OPTIONS = ["English", "Tagalog", "French", "German", "Chinese"];
+export const LANGUAGE_OPTIONS = ["English", "Tagalog", "French", "German", "Chinese", "Turkish", "Hindi", "Portuguese"];
 
 export interface JobListing {
   id: string;
