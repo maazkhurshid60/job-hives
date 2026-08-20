@@ -10,7 +10,7 @@ const SubHeading: React.FC<SubHeadingProps> = ({ children, className }) => (
   <h2
     className={clsx(
       "font-heading font-bold text-neutral-900",
-      "text-[clamp(26px,4vw,38px)] leading-[1.5]",
+      "text-[clamp(26px,4vw,38px)] leading-[1.2]",
       className
     )}
   >

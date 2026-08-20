@@ -239,7 +239,7 @@ const Hero: React.FC = () => {
 
       <Container className="relative z-10 hero-grid grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
         <div ref={heroInnerRef} className="max-w-[820px] lg:max-w-none text-center lg:text-left mx-auto lg:mx-0 hero-inner pending">
-          <h1 className="font-heading font-extrabold text-[32px] sm:text-[44px] md:text-[52px] lg:text-[54px] leading-[1.08] tracking-tight text-neutral-900 relative inline-block">
+          <h1 className="font-heading font-extrabold text-[32px] sm:text-[44px] md:text-[52px] lg:text-[64px] leading-[1.08] tracking-tight text-neutral-900 relative inline-block">
             Hire remote talent, <span className="text-primary-500">the right way</span>
           </h1>
 
