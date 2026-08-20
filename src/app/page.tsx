@@ -7,6 +7,7 @@ import FeaturedJobs from "@/components/pages/landing-page/FeaturedJobs";
 import WhyChooseUs from "@/components/pages/landing-page/WhyChooseUs";
 import SocialProof from "@/components/pages/landing-page/SocialProof";
 import Pricing from "@/components/pages/landing-page/Pricing";
+import FaqSection from "@/components/pages/landing-page/FaqSection";
 import FinalCTA from "@/components/pages/landing-page/FinalCTA";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <WhyChooseUs />
       <SocialProof />
       <Pricing />
+      <FaqSection />
       <FinalCTA />
     </LandingPageWrapper>
   );
