@@ -46,45 +46,28 @@ const HowItWorks: React.FC = () => {
           />
         </div>
 
-        {/* Flow Panel */}
-        <div className="relative max-w-[980px] mx-auto hiw-flow">
-          {/* Grey Dashed Wave Connector (hidden on mobile) */}
-          <svg className="absolute top-[-50px] left-0 w-full h-[150px] z-0 overflow-visible hidden min-[861px]:block hiw-connector" viewBox="0 -50 1000 150" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M 157 15 L 300 -45 L 500 70 L 700 -45 L 843 15" fill="none" stroke="var(--neutral-300)" strokeWidth="2" strokeDasharray="6 7" strokeLinejoin="round" />
-          </svg>
-
-          <div className="relative grid grid-cols-1 min-[861px]:grid-cols-3 items-start gap-7 z-10 hiw-cards">
+        {/* Flow Panel — layered accent panel behind a white card, number badge riding the left edge */}
+        <div className="relative max-w-[1020px] mx-auto hiw-flow">
+          <div className="relative grid grid-cols-1 min-[861px]:grid-cols-3 gap-11 min-[861px]:gap-10 pl-[22px] hiw-cards">
             {steps.map((step, index) => (
-              <div
-                key={index}
-                className={clsx(
-                  "relative pt-[34px] group hiw-step",
-                  step.isDip && "min-[861px]:pt-[92px] dip"
-                )}
-              >
-                {/* Icon Wrapper */}
-                <div
-                  className={clsx(
-                    "absolute top-0 left-1/2 -translate-x-1/2 z-20 hiw-icon-wrap",
-                    step.isDip && "min-[861px]:top-[58px]"
-                  )}
-                >
-                  <div
-                    className={clsx(
-                      "w-[58px] h-[58px] rounded-full text-neutral-0 flex items-center justify-center border-4 border-solid border-neutral-0 shadow-[0_10px_22px_rgba(0,174,239,0.32)] transition-transform duration-250 group-hover:scale-108 hiw-icon",
-                      step.isDip ? "bg-primary-500 min-[861px]:bg-primary-600" : "bg-primary-500"
-                    )}
-                  >
-                    <step.icon className="w-6 h-6" />
-                  </div>
-                </div>
+              <div key={index} className="relative h-full group hiw-step">
+                <div className="relative h-full step-card-wrap">
+                  {/* Offset accent panel peeking out behind the card */}
+                  <div className="absolute -top-1 -right-1 bottom-3 left-3 bg-primary-500 rounded-lg rounded-br-[70px] z-0 transition-transform duration-200 group-hover:translate-x-[2px] step-card-bg" />
 
-                {/* Content Card */}
-                <div className="bg-neutral-0 border border-solid border-neutral-200 rounded-lg p-[34px_22px_26px] text-center shadow-sm hover:translate-y-[-4px] hover:shadow-md transition-all duration-200 step-card">
-                  <CardHeading className="text-base mb-2">{step.title}</CardHeading>
-                  <CardDesc className="text-[13.5px] leading-relaxed text-neutral-600">
-                    {step.desc}
-                  </CardDesc>
+                  {/* Number badge riding the card's left edge */}
+                  <div className="absolute -left-[22px] top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-primary-500 text-neutral-0 flex items-center justify-center font-heading font-extrabold text-[14.5px] shadow-[0_8px_18px_-4px_rgba(20,25,28,0.28)] border-[3px] border-solid border-neutral-0 step-num">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Content card */}
+                  <div className="relative z-10 h-full flex flex-col bg-neutral-0 border border-solid border-neutral-100 rounded-lg rounded-br-[70px] pt-[34px] pb-[26px] px-5 text-center shadow-sm transition-all duration-200 group-hover:shadow-md step-card">
+                    <div className="w-[46px] h-[46px] rounded-md bg-neutral-50 mx-auto mb-4 flex items-center justify-center step-icon">
+                      <step.icon className="w-[22px] h-[22px] text-primary-600" />
+                    </div>
+                    <CardHeading className="text-[15.5px] mb-2">{step.title}</CardHeading>
+                    <CardDesc className="text-[13.5px] leading-relaxed text-neutral-600">{step.desc}</CardDesc>
+                  </div>
                 </div>
               </div>
             ))}
