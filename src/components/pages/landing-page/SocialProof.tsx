@@ -48,7 +48,7 @@ const SocialProof: React.FC = () => {
         </div>
 
         {/* Desktop / Tablet Vertical Auto-Scrolling columns */}
-        <div className="hidden min-[641px]:grid relative grid-cols-2 min-[980px]:grid-cols-3 gap-5 max-h-[560px] min-[980px]:max-h-[640px] overflow-hidden tw-columns">
+        <div className="hidden sm:grid relative grid-cols-2 lg:grid-cols-3 gap-5 max-h-[560px] lg:max-h-[640px] overflow-hidden tw-columns">
           {/* Column 1 */}
           <div className="overflow-hidden tw-col group/col">
             <div className="flex flex-col gap-5 animate-[twScrollUp_34s_linear_infinite] group-hover/col:[animation-play-state:paused] tw-col-inner">
@@ -66,7 +66,7 @@ const SocialProof: React.FC = () => {
             </div>
           </div>
           {/* Column 3 (Hidden on medium tablet sizes) */}
-          <div className="overflow-hidden hidden min-[980px]:block tw-col group/col">
+          <div className="overflow-hidden hidden lg:block tw-col group/col">
             <div className="flex flex-col gap-5 animate-[twScrollUp_40s_linear_infinite] group-hover/col:[animation-play-state:paused] tw-col-inner">
               {[...col3, ...col3].map((t, idx) => (
                 <TestimonialCard key={`c3-${idx}`} testimonial={t} />
@@ -76,7 +76,7 @@ const SocialProof: React.FC = () => {
         </div>
 
         {/* Mobile Horizontal Auto-Scrolling row */}
-        <div className="block min-[641px]:hidden overflow-hidden relative mt-2 tw-mobile-row">
+        <div className="block sm:hidden overflow-hidden relative mt-2 tw-mobile-row">
           <div className="absolute top-0 bottom-0 left-0 w-9 z-30 pointer-events-none bg-gradient-to-r from-neutral-50 to-transparent tw-fade-side tw-fade-left" />
           <div className="absolute top-0 bottom-0 right-0 w-9 z-30 pointer-events-none bg-gradient-to-l from-neutral-50 to-transparent tw-fade-side tw-fade-right" />
           <div className="flex gap-4 w-max animate-[twScrollLeft_45s_linear_infinite] hover:[animation-play-state:paused] tw-mobile-track">

@@ -11,7 +11,7 @@ interface JobFilterBarProps {
 
 const JobFilterBar: React.FC<JobFilterBarProps> = ({ activeFilter, onFilterChange, count }) => {
   return (
-    <div className="flex items-center max-[520px]:items-start justify-between gap-4 mb-5 flex-wrap jobs-main-head">
+    <div className="flex items-center max-sm:items-start justify-between gap-4 mb-5 flex-wrap jobs-main-head">
       <h3 className="text-lg font-extrabold text-neutral-900">
         Recommended Jobs <span className="text-primary-600">({count})</span>
       </h3>

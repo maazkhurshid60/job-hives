@@ -54,7 +54,7 @@ const FeaturedJobs: React.FC = () => {
         <div
           ref={jobsLayoutReveal.ref}
           className={clsx(
-            "grid grid-cols-1 min-[861px]:grid-cols-[4fr_8fr] gap-7 items-start jobs-layout",
+            "grid grid-cols-1 md:grid-cols-[4fr_8fr] gap-7 items-start jobs-layout",
             jobsLayoutReveal.className
           )}
         >

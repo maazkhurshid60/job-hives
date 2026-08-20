@@ -22,7 +22,7 @@ const ApplyCard: React.FC<ApplyCardProps> = ({ job, className }) => {
   ];
 
   return (
-    <aside className={clsx("bg-neutral-0 border border-solid border-neutral-200 rounded-lg p-6 min-[1024px]:self-start min-[1024px]:sticky min-[1024px]:top-[92px] apply-card", className)}>
+    <aside className={clsx("bg-neutral-0 border border-solid border-neutral-200 rounded-lg p-6 lg:self-start lg:sticky lg:top-[92px] apply-card", className)}>
       <div className="flex items-center gap-3 mb-4 pb-4 border-b border-solid border-neutral-100 employer-mini">
         <div className="w-11 h-11 rounded-full bg-[linear-gradient(160deg,var(--primary-400),var(--primary-600))] flex-shrink-0 flex items-center justify-center text-neutral-0 font-bold text-base avatar">
           {job.employer.charAt(0)}

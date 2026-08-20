@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-neutral-900 text-neutral-400 pt-16 pb-8 mt-0">
       <Container>
-        <div className="grid grid-cols-1 min-[421px]:grid-cols-2 min-[981px]:grid-cols-5 gap-8 mb-10 footer-grid">
-          <div className="min-[981px]:col-span-2 footer-brand">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-10 footer-grid">
+          <div className="lg:col-span-2 footer-brand">
             <Link href="/" className="flex items-center gap-2 font-heading font-extrabold text-xl text-neutral-0 mb-3 logo">
               <span className="w-2.5 h-2.5 rounded-full bg-primary-500 dot" />
               JobHive

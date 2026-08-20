@@ -28,14 +28,14 @@ const FindJobCard: React.FC<FindJobCardProps> = ({ job, isList = false, variantI
     <div
       className={clsx(
         "relative h-full rounded-2xl overflow-hidden border-2 border-solid flex flex-col transition-all duration-200 hover:shadow-lg  job-card",
-        isList && "min-[1120px]:flex-row",
+        isList && "xl:flex-row",
         job.isPremium ? "border-warning-400" : "border-neutral-200/70",
         bgClass
       )}
     >
       <Link href={href} aria-label={`View job: ${job.title}`} className="absolute inset-0 z-[1] job-card-link" />
 
-      <div className={clsx("relative z-[2] flex flex-col gap-3.5 p-5 pb-4 flex-1", isList && "min-[1120px]:pb-5")}>
+      <div className={clsx("relative z-[2] flex flex-col gap-3.5 p-5 pb-4 flex-1", isList && "xl:pb-5")}>
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="text-xs font-semibold text-neutral-700 bg-neutral-0 rounded-full px-3 py-1.5 shadow-sm whitespace-nowrap posted">
@@ -84,12 +84,12 @@ const FindJobCard: React.FC<FindJobCardProps> = ({ job, isList = false, variantI
       <div
         className={clsx(
           "relative z-[2] bg-neutral-0 px-5 py-4 flex items-center justify-between gap-3",
-          isList && "min-[1120px]:flex-col min-[1120px]:items-end min-[1120px]:justify-center min-[1120px]:w-[220px] min-[1120px]:flex-shrink-0 min-[1120px]:gap-2 min-[1120px]:text-right"
+          isList && "xl:flex-col xl:items-end xl:justify-center xl:w-[220px] xl:flex-shrink-0 xl:gap-2 xl:text-right"
         )}
       >
         <div>
           <div className="text-base font-bold text-neutral-900 comp">{job.compensationShort}</div>
-          <div className={clsx("text-xs text-neutral-500 loc flex items-center justify-start gap-1.5", isList && "min-[1120px]:justify-end")}>
+          <div className={clsx("text-xs text-neutral-500 loc flex items-center justify-start gap-1.5", isList && "xl:justify-end")}>
             <FlagIcon countryCode={job.countryCode} />
             {job.location}
             <span className="w-[3px] h-[3px] rounded-full bg-neutral-400 flex-shrink-0" />

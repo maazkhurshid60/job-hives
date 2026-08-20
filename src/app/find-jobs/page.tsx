@@ -21,16 +21,16 @@ const JOB_SORT_OPTIONS = [
 const PAGE_SIZE = 8;
 
 // Desktop-only bento layout on a 12-col grid.
-// Below the 1120px breakpoint the grid drops to grid-cols-2 / grid-cols-1, where these spans don't apply.
+// Below the xl breakpoint the grid drops to grid-cols-2 / grid-cols-1, where these spans don't apply.
 const BENTO_SPANS = [
-  "min-[1120px]:col-span-6",
-  "min-[1120px]:col-span-6",
-  "min-[1120px]:col-span-3",
-  "min-[1120px]:col-span-6",
-  "min-[1120px]:col-span-3",
-  "min-[1120px]:col-span-4",
-  "min-[1120px]:col-span-4",
-  "min-[1120px]:col-span-4",
+  "xl:col-span-6",
+  "xl:col-span-6",
+  "xl:col-span-3",
+  "xl:col-span-6",
+  "xl:col-span-3",
+  "xl:col-span-4",
+  "xl:col-span-4",
+  "xl:col-span-4",
 ];
 
 const EMPTY_FILTERS: FindJobsFilters = {
@@ -116,7 +116,7 @@ export default function FindJobsPage() {
               className={
                 view === "list"
                   ? "flex flex-col gap-5 job-grid view-list"
-                  : "grid grid-cols-1 min-[720px]:grid-cols-2 min-[1120px]:grid-cols-12 gap-5 job-grid"
+                  : "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 job-grid"
               }
             >
               {pageJobs.map((job, i) => (

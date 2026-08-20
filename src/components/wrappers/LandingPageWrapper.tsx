@@ -19,7 +19,7 @@ const LandingPageWrapper: React.FC<LandingPageWrapperProps> = ({ children }) => 
       
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[72px] bg-neutral-0 z-40 p-6 flex flex-col gap-1 overflow-y-auto min-[861px]:hidden">
+        <div className="fixed inset-0 top-[72px] bg-neutral-0 z-40 p-6 flex flex-col gap-1 overflow-y-auto md:hidden">
           <Link
             href="/find-jobs"
             onClick={() => setMobileMenuOpen(false)}

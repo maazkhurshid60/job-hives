@@ -48,7 +48,7 @@ const HowItWorks: React.FC = () => {
 
         {/* Flow Panel — layered accent panel behind a white card, number badge riding the left edge */}
         <div className="relative max-w-[1020px] mx-auto hiw-flow">
-          <div className="relative grid grid-cols-1 min-[861px]:grid-cols-3 gap-11 min-[861px]:gap-10 pl-[22px] hiw-cards">
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-11 md:gap-10 pl-[22px] hiw-cards">
             {steps.map((step, index) => (
               <div key={index} className="relative h-full group hiw-step">
                 <div className="relative h-full step-card-wrap">

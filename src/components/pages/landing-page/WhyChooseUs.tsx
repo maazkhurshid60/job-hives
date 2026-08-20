@@ -31,7 +31,7 @@ const WhyChooseUs: React.FC = () => {
 
         <div
           ref={compareReveal.ref}
-          className={clsx("grid grid-cols-1 min-[861px]:grid-cols-2 gap-6 items-stretch compare-wrap", compareReveal.className)}
+          className={clsx("grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch compare-wrap", compareReveal.className)}
         >
           <ComparePanel data={COMPARE_OLD} />
           <ComparePanel data={COMPARE_NEW} />

@@ -26,7 +26,7 @@ const WorkerCard: React.FC<WorkerCardProps> = ({ worker, isList = false }) => {
     <div
       className={clsx(
         "bg-neutral-0 border border-solid border-neutral-200 rounded-2xl p-5 flex flex-col gap-4 transition-all duration-200 hover:shadow-lg hover:border-primary-200 worker-card",
-        isList && "min-[960px]:max-w-[560px]"
+        isList && "lg:max-w-[560px]"
       )}
     >
       <div className="flex items-start gap-3 wc-top">

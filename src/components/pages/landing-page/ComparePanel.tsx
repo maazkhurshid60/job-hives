@@ -16,7 +16,7 @@ const ComparePanel: React.FC<ComparePanelProps> = ({ data }) => {
   return (
     <div
       className={clsx(
-        "rounded-xl py-9 px-8 max-[520px]:py-7 max-[520px]:px-[22px] flex flex-col justify-between compare-panel",
+        "rounded-xl py-9 px-8 max-sm:py-7 max-sm:px-[22px] flex flex-col justify-between compare-panel",
         isNew
           ? "bg-neutral-0 border-2 border-solid border-primary-300 shadow-lg relative new"
           : "bg-neutral-50 border border-solid border-neutral-200 old"
@@ -64,7 +64,7 @@ const ComparePanel: React.FC<ComparePanelProps> = ({ data }) => {
 
       <div
         className={clsx(
-          "flex flex-col min-[521px]:flex-row gap-4 min-[521px]:gap-8 pt-5 border-t border-solid compare-stats",
+          "flex flex-col sm:flex-row gap-4 sm:gap-8 pt-5 border-t border-solid compare-stats",
           isNew ? "border-primary-100" : "border-neutral-200"
         )}
       >

@@ -51,8 +51,8 @@ const FilterBar: React.FC<FilterBarProps> = ({ filters, onChange }) => {
     <div className="relative z-[3] pt-6 pb-2 filter-wrap">
       <div className="max-w-[980px] mx-auto filter-card">
         {/* Select row — 4 filters, each col-span-3 on desktop (4 x 3 = 12) */}
-        <div className="grid grid-cols-1 min-[640px]:grid-cols-2 min-[1024px]:grid-cols-12 gap-2.5 select-row">
-          <div className="min-[1024px]:col-span-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-2.5 select-row">
+          <div className="lg:col-span-3">
             <SelectPill
               ariaLabel="Employment Type"
               placeholder="Employment Type"
@@ -62,7 +62,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ filters, onChange }) => {
               onChange={(v) => onChange("employmentType", v)}
             />
           </div>
-          <div className="min-[1024px]:col-span-3">
+          <div className="lg:col-span-3">
             <SelectPill
               ariaLabel="Social Media"
               placeholder="Social Media"
@@ -72,7 +72,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ filters, onChange }) => {
               onChange={(v) => onChange("socialMedia", v)}
             />
           </div>
-          <div className="min-[1024px]:col-span-3">
+          <div className="lg:col-span-3">
             <SelectPill
               ariaLabel="Software"
               placeholder="Software"
@@ -82,7 +82,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ filters, onChange }) => {
               onChange={(v) => onChange("software", v)}
             />
           </div>
-          <div className="min-[1024px]:col-span-3">
+          <div className="lg:col-span-3">
             <SelectPill
               ariaLabel="Languages"
               placeholder="Languages"

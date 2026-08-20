@@ -112,7 +112,7 @@ export default function FindWorkersPage() {
             />
 
             {pageWorkers.length > 0 ? (
-              <div className="grid grid-cols-1 min-[720px]:grid-cols-2 min-[1160px]:grid-cols-3 gap-5 worker-grid">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 worker-grid">
                 {pageWorkers.map((worker) => (
                   <WorkerCard key={worker.id} worker={worker} />
                 ))}

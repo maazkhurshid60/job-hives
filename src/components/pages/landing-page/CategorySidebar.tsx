@@ -34,7 +34,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({ categories, activeCat
       </h3>
 
       {/* Desktop Vertical List — capped at 400px, scrolls internally past that */}
-      <div className="hidden min-[861px]:flex flex-col gap-1 max-h-[400px] overflow-y-auto pr-1 cat-list">
+      <div className="hidden md:flex flex-col gap-1 max-h-[400px] overflow-y-auto pr-1 cat-list">
         {categories.map((cat) => (
           <button
             key={cat.key}
@@ -58,7 +58,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({ categories, activeCat
       </div>
 
       {/* Mobile/Tablet Horizontal Scrolling Row — drag/swipe/scroll manually, no auto-scroll */}
-      <div className="block min-[861px]:hidden relative cat-marquee">
+      <div className="block md:hidden relative cat-marquee">
         <button
           type="button"
           onClick={() => scrollByAmount("left")}

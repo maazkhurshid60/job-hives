@@ -25,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false })
           <span className="w-2.5 h-2.5 rounded-full bg-primary-500 dot" />
           JobHive
         </Link>
-        <nav className="hidden min-[861px]:flex items-center gap-8 links">
+        <nav className="hidden md:flex items-center gap-8 links">
           <Link
             href="/find-jobs"
             className={clsx(
@@ -56,18 +56,18 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false })
             url="/#login"
             text="Log in"
             bgColor="bg-transparent hover:bg-neutral-100 text-neutral-700"
-            className="hidden min-[861px]:inline-flex"
+            className="hidden md:inline-flex"
           />
           <ButtonSm
             url="/#signup"
             text="Sign Up"
             bgColor="bg-transparent hover:bg-primary-50 text-primary-600 border-[1.5px] border-primary-500"
             isBorder
-            className="hidden min-[861px]:inline-flex"
+            className="hidden md:inline-flex"
           />
           <button
             onClick={onHamburgerClick}
-            className="flex items-center justify-center p-2 bg-none border-none cursor-pointer min-[861px]:hidden text-neutral-800 hamburger"
+            className="flex items-center justify-center p-2 bg-none border-none cursor-pointer md:hidden text-neutral-800 hamburger"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? <X className="w-[22px] h-[22px]" /> : <Menu className="w-[22px] h-[22px]" />}

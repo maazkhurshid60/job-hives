@@ -35,7 +35,7 @@ const Pricing: React.FC = () => {
 
         <div
           ref={gridReveal.ref}
-          className={clsx("grid grid-cols-1 min-[901px]:grid-cols-3 gap-6 max-w-[1040px] mx-auto items-stretch pricing-grid", gridReveal.className)}
+          className={clsx("grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-[1040px] mx-auto items-stretch pricing-grid", gridReveal.className)}
         >
           {PRICING_PLANS.map((plan, index) => (
             <PriceCard key={index} plan={plan} billing={billing} />

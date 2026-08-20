@@ -27,7 +27,7 @@ const WorkerContactCard: React.FC<WorkerContactCardProps> = ({ worker, className
   ];
 
   return (
-    <aside className={clsx("bg-neutral-0 border border-solid border-neutral-200 rounded-lg p-6 min-[1024px]:self-start min-[1024px]:sticky min-[1024px]:top-[92px] contact-card", className)}>
+    <aside className={clsx("bg-neutral-0 border border-solid border-neutral-200 rounded-lg p-6 lg:self-start lg:sticky lg:top-[92px] contact-card", className)}>
       <button
         type="button"
         disabled={!unlocked}

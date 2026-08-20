@@ -42,12 +42,12 @@ export default async function WorkerDetailPage({ params }: WorkerDetailPageProps
         </Container>
 
         <Container className="pt-5 pb-20 detail-wrap">
-          <div className="grid grid-cols-1 min-[1024px]:grid-cols-[2fr_1fr] gap-7 detail-grid">
-            <div className="order-2 min-[1024px]:order-1">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-7 detail-grid">
+            <div className="order-2 lg:order-1">
               <WorkerDetailHeader worker={worker} />
               <WorkerDetailBody worker={worker} />
             </div>
-            <WorkerContactCard worker={worker} className="order-1 min-[1024px]:order-2" />
+            <WorkerContactCard worker={worker} className="order-1 lg:order-2" />
           </div>
         </Container>
 

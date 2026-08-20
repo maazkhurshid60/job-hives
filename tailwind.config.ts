@@ -54,6 +54,32 @@ export default {
         body: ["var(--font-body)", "sans-serif"],
         heading: ["var(--font-heading)", "sans-serif"],
       },
+      // JobHive type scale — semantic sizes layered on top of Tailwind's default text-xs..text-9xl
+      // (left untouched so nothing already built shifts). New work should reach for these instead
+      // of one-off text-[Npx] arbitrary values. See /design-system for a live reference.
+      fontSize: {
+        "heading-xl": ["34px", { lineHeight: "1.15", fontWeight: "800" }],
+        "heading-lg": ["28px", { lineHeight: "1.2", fontWeight: "800" }],
+        "heading-md": ["22px", { lineHeight: "1.3", fontWeight: "700" }],
+        "heading-sm": ["17px", { lineHeight: "1.3", fontWeight: "700" }],
+        "body-lg": ["16px", { lineHeight: "1.6" }],
+        "body-md": ["14.5px", { lineHeight: "1.55" }],
+        "body-sm": ["13px", { lineHeight: "1.5" }],
+        caption: ["11.5px", { lineHeight: "1.4" }],
+      },
+      // JobHive spacing scale — the section/card rhythm already in consistent use across the
+      // site (e.g. every section uses py-88), now codified as named tokens (p-md, gap-lg, etc.)
+      // instead of only being reachable via arbitrary p-[Npx] values.
+      spacing: {
+        xs: "8px",
+        sm: "12px",
+        md: "16px",
+        lg: "24px",
+        xl: "32px",
+        "2xl": "44px",
+        "3xl": "64px",
+        "4xl": "88px",
+      },
       borderRadius: {
         sm: "var(--radius-sm)",
         md: "var(--radius-md)",
