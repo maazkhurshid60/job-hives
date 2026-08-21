@@ -28,7 +28,7 @@ const ApplyCard: React.FC<ApplyCardProps> = ({ job, className }) => {
           {job.employer.charAt(0)}
         </div>
         <div>
-          <h4 className="text-[14.5px] font-heading text-neutral-900">{job.employer}</h4>
+          <span className="text-[14.5px] font-heading text-neutral-900">{job.employer}</span>
           <p className="text-[12.5px] text-neutral-500">{job.categoryLabel}</p>
         </div>
       </div>

@@ -29,7 +29,7 @@ const ComparePanel: React.FC<ComparePanelProps> = ({ data }) => {
             isNew ? "border-primary-100" : "border-neutral-200"
           )}
         >
-          <div className="flex items-center gap-3 text-[19px] font-extrabold text-neutral-900 compare-title">
+          <h3 className="flex items-center gap-3 text-[19px] font-extrabold text-neutral-900 compare-title">
             <span
               className={clsx(
                 "w-[34px] h-[34px] rounded-full border-[1.5px] border-solid flex items-center justify-center flex-shrink-0 badge-icon",
@@ -39,7 +39,7 @@ const ComparePanel: React.FC<ComparePanelProps> = ({ data }) => {
               <Icon className="w-[18px] h-[18px]" />
             </span>
             {data.badgeLabel}
-          </div>
+          </h3>
           {data.speedBadge && (
             <span className="bg-primary-50 text-primary-700 text-xs font-bold px-3.5 py-1.5 rounded-full whitespace-nowrap speed-badge">
               {data.speedBadge}

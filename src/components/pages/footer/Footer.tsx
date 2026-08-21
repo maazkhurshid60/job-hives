@@ -27,19 +27,19 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div className="footer-col">
-            <h5 className="text-neutral-0 text-sm font-bold mb-4">For Workers</h5>
+            <span className="text-neutral-0 text-sm font-bold mb-4">For Workers</span>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Find Jobs</Link>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Create Profile</Link>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Worker FAQ</Link>
           </div>
           <div className="footer-col">
-            <h5 className="text-neutral-0 text-sm font-bold mb-4">For Employers</h5>
+            <span className="text-neutral-0 text-sm font-bold mb-4">For Employers</span>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Find Workers</Link>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Post a Job</Link>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Pricing</Link>
           </div>
           <div className="footer-col">
-            <h5 className="text-neutral-0 text-sm font-bold mb-4">Company</h5>
+            <span className="text-neutral-0 text-sm font-bold mb-4">Company</span>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">About</Link>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Blog</Link>
             <Link href="#" className="block text-[13.5px] mb-2.5 hover:text-neutral-0 transition-colors">Trust & Safety</Link>

@@ -17,6 +17,8 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false })
   const pathname = usePathname();
   const isFindJobs = pathname?.startsWith("/find-jobs") || pathname?.startsWith("/job/");
   const isFindWorkers = pathname?.startsWith("/find-workers") || pathname?.startsWith("/worker/");
+  const isPricing = pathname?.startsWith("/pricing");
+  const isBlog = pathname?.startsWith("/blog");
 
   return (
     <header className="sticky top-0 z-50 bg-neutral-0 border-b border-solid border-neutral-200 navbar">
@@ -44,10 +46,22 @@ const Navbar: React.FC<NavbarProps> = ({ onHamburgerClick, isMenuOpen = false })
           >
             Find Workers
           </Link>
-          <Link href="/#how-it-works" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
-            How It Works
+          <Link
+            href="/blog"
+            className={clsx(
+              "text-sm font-semibold transition-colors duration-150",
+              isBlog ? "text-primary-600" : "text-neutral-600 hover:text-primary-600"
+            )}
+          >
+            Blog
           </Link>
-          <Link href="/#pricing" className="text-sm font-semibold text-neutral-600 hover:text-primary-600 transition-colors duration-150">
+          <Link
+            href="/pricing"
+            className={clsx(
+              "text-sm font-semibold transition-colors duration-150",
+              isPricing ? "text-primary-600" : "text-neutral-600 hover:text-primary-600"
+            )}
+          >
             Pricing
           </Link>
         </nav>

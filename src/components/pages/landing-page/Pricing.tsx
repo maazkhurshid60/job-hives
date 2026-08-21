@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Container from "@/components/common-layout/Container";
 import SubHeading from "@/components/pages/typography/SubHeading";
 import Paragraph from "@/components/pages/typography/Paragraph";
@@ -43,9 +44,12 @@ const Pricing: React.FC = () => {
         </div>
 
         <div className="text-center mt-9 view-all-wrap">
-          <button className="font-body font-semibold text-sm cursor-pointer select-none inline-flex items-center justify-center gap-2 transition duration-150 px-5 py-3 border border-solid border-primary-500 text-primary-600 hover:bg-primary-50 rounded-full bg-neutral-0">
+          <Link
+            href="/pricing"
+            className="font-body font-semibold text-sm cursor-pointer select-none inline-flex items-center justify-center gap-2 transition duration-150 px-5 py-3 border border-solid border-primary-500 text-primary-600 hover:bg-primary-50 rounded-full bg-neutral-0"
+          >
             View All Pricing
-          </button>
+          </Link>
         </div>
       </Container>
     </section>

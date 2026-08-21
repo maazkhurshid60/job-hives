@@ -20,7 +20,7 @@ const WorkerDetailHeader: React.FC<WorkerDetailHeaderProps> = ({ worker }) => {
         <WorkerAvatar worker={worker} size={76} className="profile-avatar" />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap profile-name-row">
-            <span className="text-[22px] font-extrabold text-neutral-900 name">{worker.name}</span>
+            <h1 className="text-[22px] font-extrabold text-neutral-900 name">{worker.name}</h1>
             <FlagIcon countryCode={worker.countryCode} className="w-5 h-3.5" />
             {worker.isVerified && (
               <span className="inline-flex items-center gap-1 text-[11.5px] font-bold text-success-600 bg-success-50 rounded-full pl-1.5 pr-2.5 py-1 verified-badge">

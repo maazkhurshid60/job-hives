@@ -20,7 +20,7 @@ export default function Home() {
       <WhyChooseUs />
       <SocialProof />
       <Pricing />
-      <FaqSection />
+      <FaqSection stacked />
       <FinalCTA />
     </LandingPageWrapper>
   );

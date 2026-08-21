@@ -6,7 +6,8 @@ export interface PricingPlan {
   isFree?: boolean;
   monthlyPrice: string;
   yearlyPrice: string;
-  featuresHeading: string;
+  yearlyBilledNote?: string;
+  featuresHeading?: string;
   features: string[];
   ctaText: string;
   ctaUrl: string;
@@ -17,55 +18,41 @@ export interface PricingPlan {
 export const PRICING_PLANS: PricingPlan[] = [
   {
     name: "Free",
-    desc: "Perfect for first-time users looking to try JobHive.",
+    desc: "Perfect for solo workers and small agencies just getting started on the platform.",
     isFree: true,
-    monthlyPrice: "FREE",
-    yearlyPrice: "FREE",
-    featuresHeading: "FREE Includes:",
-    features: ["Create 1 job post per month", "View and save job applications", "Hiring Pipeline"],
-    ctaText: "Sign Up for FREE",
+    monthlyPrice: "$0",
+    yearlyPrice: "$0",
+    features: ["1 job post / month", "View & track applications", "Basic profile & messaging", "Monthly email summary"],
+    ctaText: "Get Started Free",
     ctaUrl: "#",
-    disabled: true,
   },
   {
     name: "Plus",
-    desc: "For growing teams ready to scale their hiring efforts.",
-    monthlyPrice: "$69",
-    yearlyPrice: "$25",
+    desc: "For growing agencies ready to reach more talent, faster.",
+    monthlyPrice: "$39",
+    yearlyPrice: "$31",
+    yearlyBilledNote: "Billed $374 annually",
     featuresHeading: "Everything in Free, plus:",
     features: [
-      "Create 2 job posts per month",
+      "2 job posts / month",
       "Contact up to 400 workers",
-      "AI help with job descriptions",
-      "Smart filters for top applicants",
-      "Message candidates directly",
-      "VIP priority support",
-      "Verified employer badge",
-      "Posts shared to Telegram group",
-      "Hiring Pipeline",
+      "Direct messaging & unlocks",
+      "Featured job placement",
+      "Priority support",
     ],
-    ctaText: "Get Plus",
+    ctaText: "Start Free Trial",
     ctaUrl: "#",
+    featured: true,
   },
   {
     name: "Enterprise",
-    desc: "Designed specifically for robust hiring operations.",
+    desc: "For established agencies scaling hiring across multiple teams.",
     monthlyPrice: "$149",
-    yearlyPrice: "$44",
+    yearlyPrice: "$119",
+    yearlyBilledNote: "Billed $1,430 annually",
     featuresHeading: "Everything in Plus, plus:",
-    features: [
-      "Create 10 job posts per month",
-      "Contact up to 7,000 workers",
-      "Advanced applicant filtering",
-      "Direct chat with candidates",
-      "Dedicated VIP support",
-      "Verified employer badge",
-      "Posts shared to Telegram group",
-      "Applicant testing tools",
-      "Hiring Pipeline",
-    ],
-    ctaText: "Get Enterprise",
+    features: ["10 job posts / month", "Contact up to 7,000 workers", "Dedicated account manager", "24/7 priority support"],
+    ctaText: "Contact Sales",
     ctaUrl: "#",
-    featured: true,
   },
 ];

@@ -24,36 +24,22 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan, billing }) => {
         </span>
       )}
 
-      <div className={clsx("text-xs font-extrabold uppercase tracking-wider mb-4 plan-name", featured ? "text-neutral-0" : "text-neutral-500")}>
+      <span className={clsx("text-xs font-extrabold uppercase tracking-wider mb-4 plan-name", featured ? "text-neutral-0" : "text-neutral-500")}>
         {plan.name}
-      </div>
+      </span>
 
       <div className="flex items-baseline gap-2 flex-wrap mb-1.5 price-row">
-        {plan.isFree ? (
-          <span className={clsx("font-heading font-extrabold text-[38px] leading-none price", featured ? "text-neutral-0" : "text-neutral-900")}>
-            FREE
-          </span>
-        ) : (
-          <>
-            <span className={clsx("font-heading font-extrabold text-[38px] leading-none price", featured ? "text-neutral-0" : "text-neutral-900")}>
-              {billing === "yearly" ? plan.yearlyPrice : plan.monthlyPrice}
-            </span>
-            <span className={clsx("text-sm font-medium", featured ? "text-neutral-0" : "text-neutral-500")}>/month</span>
-            {billing === "yearly" && (
-              <span className={clsx("text-sm line-through", featured ? "text-primary-300" : "text-neutral-400")}>
-                {plan.monthlyPrice}
-              </span>
-            )}
-          </>
+        <span className={clsx("font-heading font-extrabold text-[38px] leading-none price", featured ? "text-neutral-0" : "text-neutral-900")}>
+          {billing === "yearly" ? plan.yearlyPrice : plan.monthlyPrice}
+        </span>
+        {!plan.isFree && (
+          <span className={clsx("text-sm font-medium", featured ? "text-neutral-0" : "text-neutral-500")}>/month</span>
         )}
       </div>
 
-      {!plan.isFree && (
-        <div className={clsx("text-[12.5px] font-bold mb-4", featured ? "text-neutral-0" : "text-neutral-500")}>
-          {billing === "yearly" ? "Billed Yearly" : "Billed Monthly"}
-        </div>
-      )}
-      {plan.isFree && <div className="mb-4" />}
+      <div className={clsx("text-[12.5px] font-medium mb-4 min-h-[16px]", featured ? "text-primary-200" : "text-neutral-500")}>
+        {billing === "yearly" && plan.yearlyBilledNote ? plan.yearlyBilledNote : " "}
+      </div>
 
       <p className={clsx("text-[13.5px] leading-[1.6] mb-5 desc", featured ? "text-primary-100" : "text-neutral-600")}>
         {plan.desc}
@@ -61,9 +47,11 @@ const PriceCard: React.FC<PriceCardProps> = ({ plan, billing }) => {
 
       <div className={clsx("border-t border-solid mb-5 divider", featured ? "border-primary-600" : "border-neutral-200")} />
 
-      <div className={clsx("text-[13px] font-extrabold mb-4 features-heading", featured ? "text-neutral-0" : "text-neutral-900")}>
-        {plan.featuresHeading}
-      </div>
+      {plan.featuresHeading && (
+        <div className={clsx("text-[13px] font-extrabold mb-4 features-heading", featured ? "text-neutral-0" : "text-neutral-900")}>
+          {plan.featuresHeading}
+        </div>
+      )}
 
       <ul className="p-0 mb-7 flex flex-col gap-3 flex-1 list-none text-left">
         {plan.features.map((feature, idx) => (

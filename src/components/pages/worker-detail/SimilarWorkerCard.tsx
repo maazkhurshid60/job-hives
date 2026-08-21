@@ -27,9 +27,11 @@ const SimilarWorkerCard: React.FC<SimilarWorkerCardProps> = ({ worker }) => {
         <WorkerAvatar worker={worker} size={60} />
         <div className="flex-1 min-w-0 wc-id">
           <div className="flex items-center gap-1.5 flex-wrap wc-name-row">
-            <Link href={href} className="font-bold text-[16.5px] text-neutral-900 hover:underline name">
-              {worker.name}
-            </Link>
+            <h3 className="font-bold text-[16.5px] text-neutral-900 name">
+              <Link href={href} className="hover:underline">
+                {worker.name}
+              </Link>
+            </h3>
             {worker.isVerified && (
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-success-600 bg-success-50 rounded-full pl-1.5 pr-2 py-0.5 verified-badge">
                 <BadgeCheck className="w-3 h-3" />

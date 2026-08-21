@@ -35,14 +35,14 @@ const LandingPageWrapper: React.FC<LandingPageWrapperProps> = ({ children }) => 
             Find Workers
           </Link>
           <Link
-            href="/#how-it-works"
+            href="/blog"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >
-            How It Works
+            Blog
           </Link>
           <Link
-            href="/#pricing"
+            href="/pricing"
             onClick={() => setMobileMenuOpen(false)}
             className="py-3.5 px-2 text-base font-semibold text-neutral-800 border-b border-neutral-100"
           >

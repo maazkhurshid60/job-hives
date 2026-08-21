@@ -19,7 +19,7 @@ const WorkerContactBlock: React.FC<WorkerContactBlockProps> = ({ worker }) => {
   return (
     <div className="flex flex-col gap-3.5 wc-actions-wrap">
       <div className="bg-neutral-50 rounded-md px-4 py-3.5 flex flex-col gap-2.5 wc-contact">
-        <h5 className="text-[11px] font-bold text-neutral-500 uppercase tracking-[0.03em]">Contact Detail</h5>
+        <span className="text-[11px] font-bold text-neutral-500 uppercase tracking-[0.03em]">Contact Detail</span>
         <div className="flex items-center gap-2.5 text-[13px] font-semibold text-neutral-700 contact-row">
           <Phone className="w-3.5 h-3.5 text-neutral-400 flex-shrink-0" />
           <span className={clsx(!unlocked && "blur-[4px] select-none")}>{worker.phone}</span>
