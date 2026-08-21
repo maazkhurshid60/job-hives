@@ -205,6 +205,14 @@ export const BLOG_POSTS: BlogPost[] = [
           "Keeping a simple running list of previously unlocked candidates who impressed you, along with a short note on why they weren't hired at the time, turns your unlock history into a reusable resource rather than a one-time expense. The next time a similar role opens up, checking that list before posting fresh can sometimes fill the role without spending a single new credit.",
         ],
       },
+      {
+        id: "communicate-unlock-value-to-your-team",
+        heading: "Make sure your whole team understands what an unlock costs",
+        body: [
+          "If more than one person on your team can spend unlock credits, it's worth making sure everyone shares a rough sense of how many credits the plan includes and how quickly they can be used up during a busy hiring week. Without this shared context, it's common for one team member to spend the majority of the month's credits early, leaving little room for another hiring manager's equally important role later in the same cycle.",
+          "A short, recurring reminder — even a quick note at the start of each billing cycle — of how many credits remain and how they're being allocated across open roles keeps this from becoming a source of friction. Teams that treat unlock credits as a shared, visible resource rather than something each person manages independently consistently get more value out of the same plan.",
+        ],
+      },
     ],
   },
   {
@@ -282,6 +290,14 @@ export const BLOG_POSTS: BlogPost[] = [
         body: [
           "Many freelancers write their profile once when they join the platform and never meaningfully revisit it beyond the occasional new project addition. But the way you'd describe your strongest skill a year into freelancing is usually very different from how you'd describe it on day one, and a profile that hasn't caught up to your actual current level undersells you.",
           "Set a recurring reminder — quarterly is reasonable — to reread your entire profile as if you were an employer seeing it for the first time. Ask honestly whether it reflects your current best work and your current rate, or whether it's still describing an earlier, less experienced version of you that no longer matches who you actually are as a freelancer today.",
+        ],
+      },
+      {
+        id: "get-a-second-opinion-on-your-profile",
+        heading: "Get a second opinion before you assume it's finished",
+        body: [
+          "It's genuinely difficult to read your own profile with fresh eyes once you've written and rewritten it several times, since familiarity makes even confusing or unclear phrasing feel obvious to you. Asking a friend, a past client, or another freelancer in a different specialty to read your profile cold and tell you what they understood — and what they didn't — regularly surfaces gaps you'd never catch reviewing it alone.",
+          "The most useful question to ask a second reader isn't \"does this look good\" but \"based only on what you just read, what do you think I'm best at, and would you feel confident hiring me for it.\" If their answer doesn't match what you were trying to communicate, that's a much more reliable signal to revise than your own sense of whether the writing reads well.",
         ],
       },
     ],
@@ -363,6 +379,14 @@ export const BLOG_POSTS: BlogPost[] = [
           "The second most common mistake is treating the trial as a passive evaluation rather than an active one — waiting to see what happens rather than actively using every feature the plan includes. Passive trials almost always end in an uncertain \"I'm not sure\" decision, while active trials tend to end in a clear yes or no, which is a far more useful outcome either way.",
         ],
       },
+      {
+        id: "trial-timing-relative-to-hiring-season",
+        heading: "Time your trial to a period that actually reflects your needs",
+        body: [
+          "Starting a trial during an unusually quiet week for your business, purely because it happened to be convenient, gives you a misleading picture of the plan's value. If you know a busier hiring period is coming up in the next month or two, it's almost always worth waiting to start the trial until that period begins, even if it means a short delay.",
+          "This is especially true for seasonal businesses, where hiring needs might genuinely double or triple during a specific part of the year. Testing a plan during your slow season and generalizing that experience to your busy season is one of the more common ways employers end up with a trial impression that doesn't match how the plan actually performs when they need it most.",
+        ],
+      },
     ],
   },
   {
@@ -440,6 +464,14 @@ export const BLOG_POSTS: BlogPost[] = [
         body: [
           "As your team scales, it becomes easy to lose the specific, concrete sense of what a genuinely great hire looked like versus a merely acceptable one, especially once hiring decisions are spread across several people who each have slightly different internal standards. Keeping a small internal library of two or three past hires that everyone agrees were excellent, along with a short note on why, gives new and existing hiring managers a concrete reference point.",
           "This is far more useful in practice than an abstract list of desired traits, because it lets a hiring manager compare a new applicant against a real precedent — \"is this candidate more or less promising than the one we hired for a similar role last quarter\" — which is a much easier and more consistent judgment to make than evaluating in the abstract.",
+        ],
+      },
+      {
+        id: "plan-for-turnover-at-scale",
+        heading: "Plan for turnover as a normal part of scaled hiring",
+        body: [
+          "At small scale, losing a single worker can feel like an isolated event to react to individually. At larger scale, some level of turnover is a predictable, ongoing part of running the operation, and agencies that plan for it — keeping a warm pipeline of previously strong applicants, documenting role requirements clearly enough for a fast rehire — recover from it far faster than agencies that treat every departure as a fresh, unplanned emergency.",
+          "This isn't about expecting the worst from every worker relationship. It's about recognizing that at higher volume, turnover becomes a statistical certainty rather than a surprising exception, and building a small amount of standing process around it protects your overall hiring speed even when any individual departure is disappointing.",
         ],
       },
     ],
@@ -521,6 +553,14 @@ export const BLOG_POSTS: BlogPost[] = [
           "If you're specifically eager to try a new feature the moment it's announced, the fastest way to confirm eligibility is checking your dashboard directly rather than waiting, since progressive rollouts are usually complete within the first week or two after an announcement like this one.",
         ],
       },
+      {
+        id: "reporting-issues-after-an-update",
+        heading: "What to do if something feels off after an update",
+        body: [
+          "Occasionally, a change that tests well internally behaves differently once it meets the full range of real-world hiring workflows across thousands of accounts. If something feels off after an update — a filter behaving unexpectedly, a message thread not loading the way you'd expect — reporting it specifically, with the exact steps that led to it, helps us fix it far faster than a general \"something's wrong\" note.",
+          "We take these reports seriously precisely because platform updates are meant to remove friction, not add it. An update that quietly makes even a small part of your workflow harder is a regression worth fixing quickly, and specific, detailed reports from employers actually using the feature are the fastest path to identifying exactly what needs to change.",
+        ],
+      },
     ],
   },
   {
@@ -598,6 +638,14 @@ export const BLOG_POSTS: BlogPost[] = [
         body: [
           "It's easier to spot red flags when you also have a clear positive picture to compare against. A strong application typically references something specific from your post, states availability clearly and realistically, asks one relevant question, and includes some form of concrete evidence appropriate to the role, whether that's a portfolio link or a specific past result mentioned directly.",
           "Keeping this positive checklist in mind alongside the red flags above gives you a more balanced evaluation. An application doesn't need to hit every point on the positive list to be worth unlocking, but the more of these signals that are present, the more confidently you can move forward without needing an extensive follow-up conversation first.",
+        ],
+      },
+      {
+        id: "screening-questions-that-reveal-more",
+        heading: "Screening questions that reveal more than a resume can",
+        body: [
+          "Beyond reading the application itself, a well-chosen screening question can surface far more signal than the original application ever could, particularly for roles where day-to-day judgment matters more than a fixed skill. A question like \"describe a time a client or customer was upset with you — what did you do\" reveals far more about reliability and communication style than any generic list of past roles.",
+          "The best screening questions are specific enough that a generic, copy-pasted answer becomes obvious the moment you read it. If an applicant's response to a specific, situational question feels vague or evasive, that's often a more reliable signal than anything you could have picked up from their original application alone.",
         ],
       },
     ],
@@ -679,6 +727,14 @@ export const BLOG_POSTS: BlogPost[] = [
           "The fix isn't refusing every small request; it's tracking them. Once additional asks cross a reasonable threshold, it's fair to note the added scope and either adjust the invoice or have a quick conversation about it, rather than absorbing an ever-growing project for the original quoted price indefinitely.",
         ],
       },
+      {
+        id: "pricing-confidence-comes-with-practice",
+        heading: "Pricing confidence is a skill you build, not a trait you have",
+        body: [
+          "Almost every freelancer feels some discomfort the first few times they state a rate out loud or in writing, especially a rate that feels ambitious relative to where they started. That discomfort fades with repetition far more than it fades with more experience doing the underlying work itself — the skill being built is the pricing conversation, not the craft.",
+          "A useful practice: before your next few pricing conversations, say your rate out loud to yourself beforehand, exactly as you plan to say it to the client, without qualifiers or hedging. Rehearsing the delivery, separate from rehearsing the work, measurably reduces the tendency to undercut yourself in the moment out of nervousness rather than genuine market judgment.",
+        ],
+      },
     ],
   },
   {
@@ -692,7 +748,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "Dec 4, 2025",
     readTime: "7 min read",
     overview:
-      "Distributed teams fail at communication not because of tools, but because of unclear defaults — nobody agreed on when to write versus when to talk live, and nobody wrote down decisions clearly enough for someone to reference later without asking. This guide sets defaults that keep everyone aligned with far less overhead than most teams currently spend on communication, whether you're managing a small group of freelancers or a fully distributed internal team.",
+      "Distributed teams fail at communication not because of tools, but because of unclear defaults — nobody agreed on when to write versus when to talk live, and nobody wrote down decisions clearly enough for someone to reference later without asking. The friction this creates rarely announces itself as a communication problem directly; it usually shows up as missed deadlines, repeated questions, or a vague sense that the team feels less coordinated than it should, long before anyone traces it back to the actual root cause. This guide sets defaults that keep everyone aligned with far less overhead than most teams currently spend on communication, whether you're managing a small group of freelancers or a fully distributed internal team.",
     sections: [
       {
         id: "default-to-async",
